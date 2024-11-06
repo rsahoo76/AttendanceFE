@@ -1,0 +1,191 @@
+<app-header></app-header>
+<div class="container">
+  <div class="registration-box">
+
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" >
+      <div class="form-row">
+        <div class="form-group">
+
+          <p class="text-center">! Registration Form !</p>
+          <br>
+          <div class="row g-3">
+            <div class="col-sm-6">
+              <input type="text" class="form-control" [ngClass]="{'is-invalid' : firstname.invalid && firstname.touched}" id="firstname" formControlName="firstname"
+                placeholder="First name" aria-label="firstname"  autocomplete="nope">
+              <!-- <label for="firstname">First Name</label> -->
+              <div *ngIf="firstname.invalid && firstname.touched">
+                <span *ngIf="firstname.errors?.['required']" class="text-danger">First Name is Required</span>
+                <span *ngIf="firstname.errors?.['pattern']" class="text-danger">First Name should be a valid name </span>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <input type="text" class="form-control" [ngClass]="{'is-invalid' : lastname.invalid && lastname.touched}" id="lastname" formControlName="lastname" placeholder="Last name"
+                aria-label="lastname" autocomplete="nope" >
+              <!-- <label for="lastname">Last Name</label> -->
+              <div *ngIf="lastname.invalid && lastname.touched">
+                <span *ngIf="lastname.errors?.['required']" class="text-danger">Last Name is Required</span>
+                <span *ngIf="lastname.errors?.['pattern']" class="text-danger">Last Name should be a valid name </span>
+              </div>
+            </div>
+          </div>
+
+          <br>
+
+          <div class="row g-3">
+            <div class="col-sm-6">
+              <input type="email" class="form-control" [ngClass]="{'is-invalid' : email.invalid && email.touched}" id="email" formControlName="email" placeholder="Email"
+                aria-label="email"  autocomplete="nope">
+              <!-- <label for="email">Email</label> -->
+
+              <small *ngIf="email.invalid && (email.dirty || email.touched)" class="text-danger">
+                <div *ngIf="email.errors?.['required']">Email is required.</div>
+                <div *ngIf="email.errors?.['email']">Email should be valid.</div>
+            </small>
+
+              <!-- <div *ngIf="email.invalid && email.touched">
+                <span *ngIf="email.errors?.['required']" class="text-danger">Please fill valid Email</span>
+              </div> -->
+            </div>
+
+            <div class="col-sm-6">
+              <input type="password" class="form-control" [ngClass]="{'is-invalid' : password.invalid && password.touched}" id="password" formControlName="password" placeholder="Password">
+              <!-- <label for="password">Password</label> -->
+
+              <small *ngIf="password.invalid && (password.dirty || password.touched)" class="text-danger">
+                <div *ngIf="password.errors?.['required']">Password is required.</div>
+                <div *ngIf="password.errors?.['minlength']">Password must be at least 8 characters long.</div>
+                <div *ngIf="password.errors?.['pattern']">Password must contain at least one uppercase letter, one lowercase letter, and one number.</div>
+            </small>
+              
+              <!-- <div *ngIf="password.invalid && password.touched">
+                <span *ngIf="password.errors?.['required']" class="text-danger">Please fill valid Password</span>
+              </div> -->
+            </div>
+          </div>
+
+
+          <br>
+
+          <div class="row g-3">
+            <div class="col-sm-6">
+              <input type="text" class="form-control" [ngClass]="{'is-invalid' : phoneNumber.invalid && phoneNumber.touched}" id="phoneNumber" formControlName="phoneNumber"
+                placeholder="Phone Number" aria-label="phoneNumber" class="form-control textbox-danger" >
+              <!-- <label for="phoneNumber">Phone Number</label> -->
+              <div *ngIf="phoneNumber.invalid && phoneNumber.touched">
+                <span *ngIf="phoneNumber.errors?.['required']" class="text-danger">Phone Number is Required</span>
+                <span *ngIf="phoneNumber.errors?.['pattern']" class="text-danger">Phone number must be numbers with exactly 10 digits.</span>
+              </div>
+            </div>
+
+            <div class="col-sm-6">
+              <input type="text" class="form-control" [ngClass]="{'is-invalid' : location.invalid && location.touched}" id="location" formControlName="location" placeholder="Location"
+                aria-label="location"  autocomplete="nope">
+              <!-- <label for="location">Location</label> -->
+              <div *ngIf="location.invalid && location.touched">
+                <span *ngIf="location.errors?.['required']" class="text-danger">Location is Required</span>
+                <span *ngIf="location.errors?.['pattern']" class="text-danger">Please fill valid location</span>
+              </div>
+            </div>
+          </div>
+
+
+          <!-- <div class="row g-3">
+            <div class="col">
+
+              <select class="form-control" name="department" id="departmentSelect" formControlName="department" aria-label="department">
+                <option value="" disabled selected hidden>Department</option>
+                <option value="1">Department 1</option>
+                <option value="2">Department 2</option>
+            </select> -->
+
+
+          <!--<input type="text" class="form-control" id="department" formControlName="department"
+                placeholder="Department" aria-label="department">
+               <label for="department">Department</label> -->
+          <!-- <div *ngIf="department.invalid && department.touched">
+                <span *ngIf="department.errors?.['required']">department is required</span>
+              </div>
+            </div>
+
+
+          <div class="col">
+            <div class="col">
+                <select class="form-control" name="roles" id="rolesSelect" formControlName="roles" aria-label="roles">
+                    <option value="" disabled selected hidden>Roles</option>
+                    <option value="teacher">Teacher</option>
+                    <option value="student">Student</option>
+                </select>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div *ngIf="roles.invalid && roles.touched">
+                    <span *ngIf="roles.errors?.['required']">Roles is required</span>
+                </div>
+            </div>
+        </div>
+        
+
+          </div> -->
+
+          <br>
+          <div class="row g-3">
+            <div class="col-sm-6">
+              <mat-form-field>
+                <mat-select class="form-control" name="department" id="department" formControlName="department"
+                  placeholder="Department" aria-label="department">
+                  <mat-option value="Department1">Department 1</mat-option>
+                  <mat-option value="Department2">Department 2</mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+
+            <div *ngIf="department.invalid && department.touched">
+              <span *ngIf="department.errors?.['required']" class="text-danger">Department is Required</span>
+            </div>
+
+
+            <div class="col-sm-6">
+              <mat-form-field>
+                <mat-select class="form-control" name="roles" id="roles" formControlName="roles" placeholder="Roles"
+                  aria-label="roles">
+                  <mat-option value="teacher">Teacher</mat-option>
+                  <mat-option value="student">Student</mat-option>
+                </mat-select>
+              </mat-form-field>
+
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col">
+              <div *ngIf="roles.invalid && roles.touched">
+                <span *ngIf="roles.errors?.['required']" class="text-danger">Role is Required</span>
+              </div>
+            </div>
+          </div>
+          <br>
+
+          <button type="button" class="btn btn-secondary" style="margin-inline-start: auto ;" routerLink="/login">Login</button>
+
+          <button type="reset" class="btn btn-warning" style="margin-left: 15%; ">Reset</button>
+
+          <!-- <button type="submit" [disabled]="registerForm.invalid" class="btn btn-outline-primary">Register</button> -->
+          <button type="submit" class="btn btn-primary" style="margin-left: 65px;" 
+          [disabled]="registerForm.invalid"
+          (click)="openDialog()"  >Register</button>
+
+
+          <!-- <button type="submit" class="btn btn-outline-primary" style="margin-left:170px" (click)="openDialog()"  >Register</button> -->
+          <!-- <button (click)="openDialog()" class="btn btn-primary"> Open the pop up </button> -->
+          <!-- <button type="submit" class="btn btn-outline-primary" style="margin-left:170px">Register</button> -->
+          <br>
+          <!-- <button type="button" class="btn btn-primary" routerLink="/home">Register</button> -->
+          <!-- <a style="margin-left: 450px" routerLink="/home">Register</a> -->
+
+        </div>
+      </div>
+    </form>
+
+  </div>
+</div>

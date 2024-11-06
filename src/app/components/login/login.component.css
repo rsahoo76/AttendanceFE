@@ -1,0 +1,31 @@
+/* .card{
+
+display: block;
+margin-left: 60%;
+margin-right: auto;
+width: 80%;
+
+   
+}
+
+.card-body{
+    align-items: center;
+} */
+
+.img {
+
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+
+}
+
+
+
+.centered-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}

@@ -1,0 +1,116 @@
+<!-- 
+ <p>student works!</p>
+<button (click)="toggleWeekends()">toggle weekends</button>
+<br>
+<br>
+<full-calendar 
+[options]="calendarOptions"
+defaultView="dayGridMonth">
+</full-calendar> -->
+
+<!-- <full-calendar [options]="calendarOptions">
+    <ng-template #eventContent let-arg>
+      <b>{{ arg.event.title }}</b>
+    </ng-template>
+  </full-calendar> -->
+
+<!-- 
+  <table>
+    <thead>
+      <tr>
+        <th>Semester</th>
+        <th>Date</th>
+        <th>Day</th>
+        <th>Slot 1</th>
+        <th>Slot 2</th>
+        <th>Slot 3</th>
+        <th>Slot 4</th>
+        <th>Slot 5</th>
+        <th>Slot 6</th>
+        <th>Slot 7</th>
+        <th>Slot 8</th>
+
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let event of calendar">
+        <td>{{ event.semester }}</td>
+        <td>{{ event.date }}</td>
+        <td>{{ event.day }}</td>
+        <td>{{ event.slot1 }}</td>
+        <td>{{ event.slot2 }}</td>
+        <td>{{ event.slot3 }}</td>
+        <td>{{ event.slot4 }}</td>
+        <td>{{ event.slot5 }}</td>
+        <td>{{ event.slot6 }}</td>
+        <td>{{ event.slot7 }}</td>
+        <td>{{ event.slot8 }}</td>
+      </tr>
+    </tbody>
+  </table>
+   -->
+
+<app-header></app-header>
+  
+ <br>
+ <br>
+   <table>
+    <thead>
+      <tr>
+        <th>Attribute</th>
+        <th *ngFor="let event of calendar; let i = index">Event {{ i + 1 }}</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- <tr>
+        <td>Semester</td>
+        <td *ngFor="let event of calendar">{{ event.semester }}</td>
+      </tr>
+      <tr>
+        <td>Date</td>
+        <td *ngFor="let event of calendar">{{ event.date }}</td>
+      </tr> -->
+      <tr>
+        <td>Day</td>
+        <td *ngFor="let event of calendar">{{ event.day }}</td>
+      </tr>
+      <tr>
+        <td>Slot 1</td>
+        <td *ngFor="let event of calendar">{{ event.slot1 }}</td>
+      </tr>
+      <tr>
+        <td>Slot 2</td>
+        <td *ngFor="let event of calendar">{{ event.slot2 }}</td>
+      </tr>
+      <tr>
+        <td>Slot 3</td>
+        <td *ngFor="let event of calendar">{{ event.slot3 }}</td>
+      </tr>
+      <tr>
+        <td>Slot 4</td>
+        <td *ngFor="let event of calendar">{{ event.slot4 }}</td>
+      </tr>
+      <tr>
+        <td>Slot 5</td>
+        <td *ngFor="let event of calendar">{{ event.slot5 }}</td>
+      </tr>
+      <tr>
+        <td>Slot 6</td>
+        <td *ngFor="let event of calendar">{{ event.slot6 }}</td>
+      </tr>
+      <tr>
+        <td>Slot 7</td>
+        <td *ngFor="let event of calendar">{{ event.slot7 }}</td>
+      </tr>
+      <tr>
+        <td>Slot 8</td>
+        <td *ngFor="let event of calendar">{{ event.slot8 }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+   <!-- <div style="margin: 50px;">
+    <full-calendar [options]="calendarOptions"></full-calendar>
+  </div> -->
+  

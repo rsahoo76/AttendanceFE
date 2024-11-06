@@ -1,0 +1,15 @@
+/* .mat-button{
+    width: auto; */
+/* } */
+
+
+.mat-button-icon {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 5px;
+    line-height: 14px;
+    width: 100px;
+
+   
+  }

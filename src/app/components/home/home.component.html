@@ -1,0 +1,618 @@
+<!-- 
+<nav class="navbar bg-body-tertiary">
+    <div class="container-fluid">
+      <a class="navbar-brand" >
+        <img src="assets/Image/Student Image.png" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
+         Attendance System 
+        Mumbai University
+      </a>
+  <br>
+     
+
+    <form class="d-flex" role="search" style="margin-left: 500px;">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit" >Search</button>
+      </form>
+
+
+      <div >
+        <button class="btn btn-outline-primary"  routerLink="/register" style="margin-right: 0px;">Register</button>
+      </div>
+
+      <div>
+        <button class="btn btn-outline-primary" (click)="logout()" >Logout</button>
+      </div>
+    </div>
+  </nav> -->
+
+  
+  <!-- <p>
+    <mat-toolbar style="background-color: black;">
+      <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+        <mat-icon style="color: white;">menu</mat-icon>
+        
+      </button>
+      <span style="color: white;">Mumbai University</span>
+      <span class="example-spacer"></span>
+      <a mat-flat-button (click)="logout()"  style="margin-left: auto;">Logout</a>
+    </mat-toolbar>
+  </p> -->
+
+
+  <!-- <mat-toolbar style="background-color: black;">
+    <mat-toolbar-row>
+      <button mat-icon-button [matMenuTriggerFor]="menu">
+        <mat-icon style="color: white;">menu</mat-icon>
+      </button>
+      <h1 style="color: white;">Mumbai University</h1>
+      <span style="flex: 1 1 auto;"></span>
+      <a mat-flat-button (click)="logout()">Logout</a>
+    </mat-toolbar-row>
+  </mat-toolbar>
+  
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item routerLink="/student">Student</button>
+    <button mat-menu-item>Courses</button>
+    <button mat-menu-item>Library</button>
+    <button mat-menu-item>Report</button>
+  </mat-menu>
+  
+<br>
+<p>home works!</p>
+
+<div>
+    <p>Welcome to the Attendance Management Application!!</p>
+</div>
+<br> -->
+
+
+
+
+<!-- Works fine in stackblitz but not here -->
+<!-- <mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <button mat-icon-button>
+      <mat-icon>menu</mat-icon>
+    
+    </button>
+    <h1>Mumbai University</h1>
+    <span class="menu-spacer"></span>
+  </mat-toolbar-row>
+</mat-toolbar> -->
+
+<!-- <div class="sidebar">
+  <div class="sidebarlinks">
+    <div style="padding-top: 3%">
+      <div style="margin-left: 200px; margin-right: 10px; padding: 3%; border-bottom: 1px solid #c5c5c5">
+				<label style="padding-left: 5px">  Menu</label>
+        <button class="btn btn-primary">Click</button>
+				<span class="glyphicon glyphicon-menu-hamburger" (click)="toggleSidebar()"
+					style="float: right; margin-right: -4px; cursor: pointer; font-size: 20px"></span>
+        </div>
+
+</div>
+</div>
+</div> -->
+
+
+
+
+<!-- Header -->
+ <div class="header" style="padding-left: 50px;">
+<mat-toolbar style="background-color: black;">
+  <mat-toolbar-row>
+    <h1 class="branding-text" style="color: white;">Mumbai University</h1>
+    <div class="topbar__nav-item topbar__nav-item--selected" >
+      <!-- <a class="topbar__nav-handle" style="color: white; margin-left: 50%;" href="/home">Home</a> -->
+      <a mat-button class="topbar__nav-handle" style="color: white; margin-left: 50%;" href="/home" target="_blank">Home</a>
+      <a mat-button class="topbar__nav-handle" style="color: white; margin-left: 30%;" href="/teacher" target="_blank">Teacher</a>
+
+    </div>
+
+    <span style="flex: 1 1 auto;"></span>
+    <a mat-flat-button (click)="logout()">Logout</a>
+  </mat-toolbar-row>
+</mat-toolbar>
+</div>
+
+
+<div class="header_2" style="padding-left: 50px;">
+  <!-- <mat-toolbar > -->
+    <mat-toolbar-row class="heading_2">
+      <!-- <h2 class="branding-text" style="color: black;">First Year</h2> -->
+      <div class="col-md-1">
+        <h4 routerLink="/student" style="font-size: small;" target="_blank">First Year</h4>
+      </div>
+      <div class="col-md-1">
+        <h4 routerLink="/student" style="font-size: small;">Second Year</h4>
+      </div>
+      <div class="col-md-1">
+        <h4 routerLink="/student" style="font-size: small;">Third Year</h4>
+      </div>
+      <div class="col-md-1">
+        <h4 routerLink="/student" style="font-size: small;">Fourth Year</h4>
+      </div>
+    
+    </mat-toolbar-row>
+  <!-- </mat-toolbar> -->
+  </div>
+
+<!-- Sidebar -->
+
+<div class="sidebar" id="left-sidebar" [class.sidebar-collapsed]="!sidebarOpen" [class.sidebar-expanded]="sidebarOpen">
+	<div class="sidebarlinks" style="margin-top: -15px;">
+    <div style="padding-top: 0%">
+			<div style="margin-left: 10px; margin-right: 10px; padding: 3%; border-bottom: 1px solid #c5c5c5">
+				<label style="padding-left: 5px">MENU</label>
+				<span class="glyphicon glyphicon-menu-hamburger" (click)="toggleSidebar()"
+					style="float: right; margin-right: -4px; cursor: pointer; font-size: 20px"></span>
+        </div>
+
+        <li class="sidebar-link" routerLink="/student" (click)="sidebarOpen ? toggleSidebar() : null" >
+				<a style="text-decoration: none">Student</a>
+				<span id="chevron" style="float: right; margin-top: 5px" *ngIf="sidebarOpen"></span>
+				<span matTooltip="Student" matTooltipPosition="right" 
+					*ngIf="!sidebarOpen" style="float:right; cursor: pointer;font-size: 20px;margin-right: 7px"></span>
+			</li>
+
+      <li class="sidebar-link" routerLink="" (click)="sidebarOpen ? toggleSidebar() : null" >
+				<a style="text-decoration: none">Courses</a>
+				<span id="chevron" style="float: right; margin-top: 5px" *ngIf="sidebarOpen"></span>
+				<span matTooltip="Courses" matTooltipPosition="right" 
+					*ngIf="!sidebarOpen" style="float:right; cursor: pointer;font-size: 20px;margin-right: 7px"></span>
+			</li>
+
+      <li class="sidebar-link" routerLink="" (click)="sidebarOpen ? toggleSidebar() : null" >
+				<a style="text-decoration: none">Library</a>
+				<span id="chevron" style="float: right; margin-top: 5px" *ngIf="sidebarOpen"></span>
+				<span matTooltip="Library" matTooltipPosition="right" 
+					*ngIf="!sidebarOpen" style="float:right; cursor: pointer;font-size: 20px;margin-right: 7px"></span>
+			</li>
+
+      <li class="sidebar-link" routerLink="" (click)="sidebarOpen ? toggleSidebar() : null" >
+				<a style="text-decoration: none">Report</a>
+				<span id="chevron" style="float: right; margin-top: 5px" *ngIf="sidebarOpen"></span>
+				<span matTooltip="Report" matTooltipPosition="right" 
+					*ngIf="!sidebarOpen" style="float:right; cursor: pointer;font-size: 20px;margin-right: 7px"></span>
+			</li>
+
+		</div>
+  </div>
+  <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>
+  <p style="text-align:center;">{{ user.firstname }} {{ user.lastname }}</p>
+  <h2></h2><br>
+
+</div>
+
+
+
+
+<!-- <div class="margin-left">
+  <app-header></app-header>
+</div> -->
+
+<!-- <button (click)="toggleWeekends()">toggle weekends</button> -->
+<br>
+<br>
+<div class="full-calendar">
+<full-calendar 
+#calendar
+[options]="calendarOptions"
+defaultView="dayGridMonth">
+</full-calendar>
+
+</div>
+
+
+<!-- 
+
+</div>
+			<li class="sidebar-link" [routerLinkActive]="['active']" [routerLink]="['pratiche']"
+				(click)="sidebarOpen ? toggleSidebar() : null" *ngIf="isUserPratiche()">
+				<a style="text-decoration: none">PRATICHE</a>
+				<span id="chevron" style="float: right; margin-top: 5px" *ngIf="sidebarOpen"></span>
+				<span matTooltip="Pratiche" matTooltipPosition="right" id="icon" class="glyphicon glyphicon-list-alt"
+					*ngIf="!sidebarOpen" style="float:right; cursor: pointer;font-size: 20px;margin-right: 7px"></span>
+			</li>
+-- here the class=glyphicon-list-alt is also showing an icon
+ -->
+
+<!-- <mat-sidenav-container>
+  <mat-sidenav #sidenav>
+    <mat-nav-list>
+      <a mat-list-item> Student </a>
+      <a mat-list-item> Courses </a>
+      <a mat-list-item> Report </a>
+      <a mat-list-item (click)="sidenav.toggle()" href="" mat-list-item
+        >Close</a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <div style="height: 28vh;"></div>
+  </mat-sidenav-content>
+</mat-sidenav-container>  -->
+
+
+
+
+      <!-- <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+        <mat-icon>favorite</mat-icon>
+      </button>
+      <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+        <mat-icon>share</mat-icon>
+      </button> -->
+      <!-- <button mat-icon-button class="example-icon logout" aria-label="Example icon-button with logout icon" (click)="logout()">
+      Logout</button> -->
+      <!-- <a mat-raised-button href="https://www.google.com/" target="_blank">Link</a> -->
+      <!-- <a mat-button (click)="logout()" target="_blank" style="margin-left: 75%;" >Logout</a> -->
+      <!-- <a mat-raised-button (click)="logout()" target="_blank" style="margin-left: 75%;">Logout</a> -->
+
+<!-- <br>
+<button  class="btn btn-primary" style="margin-left:170px" >User List</button> -->
+<!-- 
+
+<div class="card my-5">
+    <div class="card-body">
+      <table class="table table-bordered table-striped">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">First Name</th>
+            <th scope="col">Last Name</th>
+            <th scope="col">Email</th>
+            <th scope="col"></th> 
+
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of users">
+            <td>{{ user.firstname }}</td>
+            <td>{{ user.lastname }}</td>
+            <td>{{ user.email}} </td>
+            <td><a href="mailto:{{ user.email }}">{{ user.email }}</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+     (click)="sidenav.toggle()"
+ -->
+<!-- 
+This is my sidenav but I'm not able to open the menu. Resolve this problem
+ <mat-toolbar color="primary">
+    <mat-toolbar-row >
+        <button mat-icon-button>
+            <mat-icon (click)="sidenav.toggle()">menu</mat-icon>
+             </button>
+        <h1>Mumbai University</h1>
+             <div>
+                <a mat-flat-button (click)="logout()" style="margin-left: 1050%;" >Logout</a>
+             </div>
+            </mat-toolbar-row>
+ </mat-toolbar>
+ <mat-sidenav-container>
+   <mat-sidenav #sidenav [opened]="true" mode="side">
+        <mat-nav-list>
+            <a mat-nav-item>aaaa</a>
+            <a mat-nav-item>bbbb</a>
+            <a mat-nav-item>cccc</a>
+            <a mat-nav-item>dddd</a>
+
+        </mat-nav-list>
+
+   </mat-sidenav>
+   
+ </mat-sidenav-container>
+
+
+<br>
+
+ <mat-toolbar color="primary">
+    <mat-toolbar-row>
+      <button mat-icon-button>
+        <mat-icon (click)="sidenav.toggle()">menu</mat-icon>
+      </button>
+      <h1>SimpleCRM</h1>
+      <span class="menu-spacer"></span>
+      <div>
+        <a mat-button> Accounts </a>
+        <a mat-button> Create Account </a>
+        <a mat-button> Contacts </a>
+    
+      </div>
+    </mat-toolbar-row>
+  </mat-toolbar>
+  
+  <mat-sidenav-container>
+    <mat-sidenav #sidenav>
+      <mat-nav-list>
+        <a mat-list-item> Accounts </a>
+        <a mat-list-item> Create Account </a>
+        <a mat-list-item> Contacts </a>
+
+        <a mat-list-item (click)="sidenav.toggle()" href="" mat-list-item
+          >Close</a
+        >
+      </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <div style="height: 88vh;">
+ 
+      </div>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+
+
+  <br>
+  <br> -->
+  <!-- <br>
+
+  <mat-toolbar color="primary">
+    <mat-toolbar-row> -->
+      <!-- <button mat-icon-button (click)="sidenav.toggle()">
+        <mat-icon>menu</mat-icon> -->
+<!-- 
+  <button type="button" mat-button (click)="sidenav.toggle()">
+    <mat-icon>menu</mat-icon>
+    </button>
+      <h1>Mumbai University</h1>
+      <div style="margin-left: auto;">
+        <a mat-flat-button (click)="logout()">Logout</a>
+      </div>
+    </mat-toolbar-row>
+  </mat-toolbar>
+  <mat-sidenav-container>
+    <mat-sidenav #sidenav mode="side" [opened]="true" >
+      <mat-nav-list>
+        <a mat-nav-item>aaaa</a>
+        <a mat-nav-item>bbbb</a>
+        <a mat-nav-item>cccc</a>
+        <a mat-nav-item>dddd</a>
+      </mat-nav-list>
+    </mat-sidenav>
+  </mat-sidenav-container>
+   -->
+
+  <!--  Actual Working
+     <mat-toolbar style="background-color: black;">
+    <mat-toolbar-row>
+      <button mat-icon-button [matMenuTriggerFor]="menu">
+        <mat-icon style="color: white;">menu</mat-icon>
+      </button>
+      <h1 style="color: white;">Mumbai University</h1>
+      <span style="flex: 1 1 auto;"></span>
+      <a mat-flat-button (click)="logout()">Logout</a>
+    </mat-toolbar-row>
+  </mat-toolbar>
+  
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item routerLink="/student">Student</button>
+    <button mat-menu-item>Courses</button>
+    <button mat-menu-item>Library</button>
+    <button mat-menu-item>Report</button>
+  </mat-menu>
+  
+<br> -->
+
+<!-- 
+<div class="card my-5">
+    <div class="card-body">
+      <table class="table table-bordered table-striped">
+        <thead class="thead-dark">
+          <tr>
+            Welcome  John, </tr> -->
+            <!-- <th scope="col">Sr. No </th>
+            <th scope="col">First Name</th>
+            <th scope="col">Last Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">phone Number</th>  -->
+
+        <!--  <tr></tr>
+        </thead>
+         <tbody>
+          <tr *ngFor="let user of users">
+            <td>{{ user.firstname }}</td>
+            <td>{{ user.lastname }}</td>
+            <td>{{ user.email}} </td>
+            <td><a href="mailto:{{ user.email }}">{{ user.email }}</a></td>
+          </tr>
+        </tbody> -->
+      <!-- </table>
+    </div>
+  </div> -->
+  
+  <!--
+  <mat-toolbar color="primary">
+    <mat-toolbar-row>
+      <button mat-icon-button>
+        <mat-icon (click)="sidenav.toggle()">menu</mat-icon>
+      </button>
+      <h1>SimpleCRM</h1>
+      <span class="menu-spacer"></span>
+    </mat-toolbar-row>
+  </mat-toolbar>
+  
+  <mat-sidenav-container>
+    <mat-sidenav #sidenav>
+      <mat-nav-list>
+        <a mat-list-item> Accounts </a>
+        <a mat-list-item> Create Account </a>
+        <a mat-list-item> Contacts </a>
+        <a mat-list-item (click)="sidenav.toggle()" href="" mat-list-item
+          >Close</a
+        >
+      </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <div style="height: 88vh;">
+      </div>
+    </mat-sidenav-content>
+  </mat-sidenav-container> -->
+
+
+
+
+  <!-- 
+<h2>Welcome, {{ user.firstname }} {{ user.lastname }}</h2>
+<table>
+  <tr>
+    <td>First Name:</td>
+    <td>{{ user.firstname }}</td>
+  </tr>
+  <tr>
+    <td>Last Name:</td>
+    <td>{{ user.lastname }}</td>
+  </tr>
+  <tr>
+    <td>Email:</td>
+    <td>{{ user.email }}</td>
+  </tr>
+  <tr>
+    <td>Phone Number:</td>
+    <td>{{ user.phoneNumber }}</td>
+  </tr>
+  <tr>
+    <td>Location:</td>
+    <td>{{ user.location }}</td>
+  </tr>
+  <tr>
+    <td>Department:</td>
+    <td>{{ user.department?.name }}</td>
+  </tr>
+  <tr>
+    <td>Role:</td>
+    <td>{{ user.roles?.name }}</td>
+  </tr>
+</table>
+
+
+   -->
+<!-- 
+
+   <div>
+    <h2>User List</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Email</th>
+          <th>Phone Number</th>
+          <th>Location</th>
+          <th>Department</th>
+          <th>Role</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of users">
+          <td>{{ user.id }}</td>
+          <td>{{ user.firstname }}</td>
+          <td>{{ user.lastname }}</td>
+          <td>{{ user.email }}</td>
+          <td>{{ user.phonenumber }}</td>
+          <td>{{ user.location }}</td>
+          <td>{{ user.department.name }}</td>
+          <td>{{ user.role.name }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+   -->
+
+
+<!-- 
+
+   <div class="container">
+    <h2>User List</h2>
+    <table class="user-table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Email</th>
+          <th>Phone Number</th>
+          <th>Location</th>
+          <th>Department</th> 
+          <th>Role</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of users">
+          <td>{{ user.id }}</td>
+          <td>{{ user.firstname }}</td>
+          <td>{{ user.lastname }}</td>
+          <td>{{ user.email }}</td>
+          <td>{{ user.phoneNumber }}</td>
+          <td>{{ user.location }}</td>
+          <td>{{ user.department.name }}</td>
+          <td>{{ user.roles.name }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+   -->
+
+  <!-- <div class="container">
+    <h2>User List</h2>
+    <tr *ngFor="let user of users">
+      <h2>Welcome, {{ user.firstname }} {{ user.lastname }}</h2>
+<table>
+  <tr>
+    <td>First Name:</td>
+    <td>{{ user.firstname }}</td>
+  </tr>
+  <tr>
+    <td>Last Name:</td>
+    <td>{{ user.lastname }}</td>
+  </tr>
+  <tr>
+    <td>Email:</td>
+    <td>{{ user.email }}</td>
+  </tr>
+  <tr>
+    <td>Phone Number:</td>
+    <td>{{ user.phoneNumber }}</td>
+  </tr>
+  <tr>
+    <td>Location:</td>
+    <td>{{ user.location }}</td>
+  </tr>
+  <tr>
+    <td>Department:</td>
+    <td>{{ user.department.name }}</td>
+  </tr>
+  <tr>
+    <td>Role:</td>
+    <td>{{ user.roles.name }}</td>
+  </tr>
+</table>
+  </div> -->
+
+
+
+
+
+  <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br> 
+
+  <!-- <app-teacher (statusChange)="onStatusChange($event)" disabled></app-teacher> -->
+
+
+
+
+<!-- Once this is hidden it is not allowing to change the colour of the event
+  <p class="hidden">
+  <app-teacher (statusChange)="onStatusChange($event)" disabled></app-teacher>
+</p> -->
+
+
+<hr>
+
+<footer style="padding-left: 10px;">
+  <ul>
+    <li><a href="#">About Us</a></li>
+    <li><a href="#">Contact Us</a></li>
+    <li><a href="#">Help</a></li>
+  </ul>
+</footer>

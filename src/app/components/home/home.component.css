@@ -1,0 +1,282 @@
+/* .header{
+	display: flex	
+} */
+
+p {
+  font-family: Lato;
+  /* padding: 20px 15px 15px 20px; */
+}
+
+html {
+  background-color: #fafafa;
+}
+
+body {
+  background-color: #fafafa;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+.button-row {
+  display: flex;
+  gap: 10px;
+}
+
+/* Change the white to any color */
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active
+{
+  box-shadow: 0 0 0 30px #fafafa inset !important;
+  -webkit-box-shadow: 0 0 0 30px #fafafa inset !important;
+}
+
+
+
+.container {
+  margin: 20px;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.user-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 15px;
+}
+
+.user-table th,
+.user-table td {
+  padding: 10px 15px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.user-table th {
+  background-color: #f4f4f4;
+}
+
+.user-table tr {
+  background-color: #ffffff;
+}
+
+.user-table tr:hover {
+  background-color: #f1f1f1;
+}
+
+
+.sidebar-backgroud-bottom {
+	width: 0;
+	height: 0;
+	border-left: 125px solid transparent;
+	border-right: 125px solid transparent;
+	border-top: 70px solid white;
+}
+
+.sidebar {
+	top: 0;
+	width: 250px;
+	bottom: 0;
+	left:-200px;
+	top: 70px;
+	z-index: 5;
+	position: fixed;
+	display: block;
+	overflow-x: hidden;
+	background-color: white;
+	transition: left 0.5s;
+	-webkit-transition: left 0.5s;
+	-moz-transition: left 0.5s;
+	-o-transition: left 0.5s;
+}
+
+.sidebarlinks {
+	vertical-align: middle;
+	background:white;
+	padding-top: 10%;
+	padding-bottom: 10%;
+	cursor: pointer;
+}
+
+.sidebar * li:focus{
+	outline:0;
+}
+
+.sidebarlinks>div>li {
+	width: auto !important;
+	padding: 3%;
+}
+
+.sidebarlinks>div>li.active{
+	border-left: 4px solid #e60000;
+}
+
+.sidebarlinks>div>li>a {
+	font-size: 18px;
+	text-transform: capitalize !important;
+	color: #7d7d7d;
+	font-weight: bold;
+	font-family: 'Helvetica' !important;
+}
+
+.sidebarlinks>div>li.active>a {
+	font-weight: bold;
+	color: #e60000 !important;
+	font-family: 'Helvetica' !important;
+}
+
+.sidebarlinks>div>li:hover>a {
+	color: #e60000;
+	cursor: pointer;
+}
+
+.sidebar-link{
+    display: block;
+}
+
+.sidebarlogo{
+	width: 70px;
+    position: absolute;
+    top: 80%;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+.sidebarlinks>div>li.active>span#chevron {
+	position: relative;
+    display: inline-block;
+    font-family: 'Glyphicons Halflings' !important;
+    font-style: normal;
+    font-weight: normal;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.sidebarlinks>div>li.active>span#chevron:before {
+	content: "\e080";
+}
+
+.sidebarlinks>div>li.active>span#icon {
+	color: #e60000;
+}
+
+.logout-button {
+    padding-top: 50px !important;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+
+.sub-sidebar-link>a {
+	font-size: 13px;
+	text-transform: capitalize !important;
+	color: #7d7d7d;
+	font-weight: bold;
+	font-family: 'Helvetica' !important;
+}
+
+.sub-sidebar-link.active>a {
+	font-weight: bold;
+	color: #e60000 !important;
+	font-family: 'Helvetica' !important;
+}
+
+.subsidebarlinks {
+	vertical-align: middle;
+	background:white;
+	padding-top: 10%;
+	padding-bottom: 10%;
+	cursor: pointer;
+}
+
+.sub-sidebar-link>a:hover {
+	color: #e60000;
+	cursor: pointer;
+}
+
+
+
+
+
+
+body {
+  display: flex;
+  transition: all 0.3s ease;
+}
+
+#left-sidebar {
+  width: 250px;
+  transition: all 0.3s ease;
+  align-items: top;
+}
+
+.margin-left {
+  flex: 1;
+  transition: all 0.3s ease;
+}
+
+.sidebar-collapsed #left-sidebar {
+  width: 0;
+  overflow: hidden;
+}
+
+.sidebar-collapsed .margin-left {
+  margin-left: 0;
+}
+
+.sidebar-expanded .margin-left {
+  margin-left: 250px;
+}
+
+.full-calendar{
+	/* padding-left: 5%; */
+	margin-left: 5%;
+	height: 200px;
+	margin-bottom: 5%;
+	
+}
+
+.approved-event {
+	background-color: green;
+	border-color: black;
+	color: black;
+  }
+  
+  .rejected-event {
+	background-color: red;
+  }
+  
+  .default-event {
+	background-color: orange;
+  }
+  
+
+
+/* .branding-text {
+    font-size: 20px;
+    font-weight: 600;
+} */
+
+
+.heading_2{
+	background-color: bisque;
+	height: auto;
+}
+
+.h4:hover {
+	box-shadow: inset 100px 0 0 0 #54b3d6;
+	color: white;
+
+  }
+
