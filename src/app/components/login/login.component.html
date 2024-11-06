@@ -35,13 +35,6 @@
 
                                 <input type="password" class="form-control" formControlName="password"
                                     placeholder="Password" (input)="onPasswordInput()" (blur)="onPasswordBlur()" />
-                                <div *ngIf="showPasswordRequirements" class="alert alert-info mt-2"
-                                    style="margin-left: 0px;">
-                                    Password must contain at least one uppercase letter, one lowercase letter, one
-                                    number,
-                                    and be at least 8 characters long.
-                                </div>
-
 
                                 <small *ngIf="password.invalid && (password.dirty || password.touched)"
                                     class="text-danger">
@@ -49,28 +42,17 @@
                                     <div *ngIf="password.errors?.['minlength']">Password must be at least 8 characters
                                         long.
                                     </div>
-                                    <div *ngIf="password.errors?.['pattern']">Password must contain at least one
+                                    <div *ngIf="!password.errors?.['pattern']">Password must contain at least one
                                         uppercase
                                         letter, one lowercase letter, and one number.</div>
                                 </small>
                             </div>
 
-
-                            <!-- <div id="message">
-                            <h3>Password must contain the following:</h3>
-                            <p id="letter" class="invalid">A lowercase letter</p>
-                            <p id="capital" class="invalid">A <b>capital (uppercase)</b> letter</p>
-                            <p id="number" class="invalid">A <b>number</b></p>
-                            <p id="length" class="invalid">Minimum <b>8 characters</b></p>
-                          </div>
- -->
-
                             <br>
-                            <button type="submit" class="btn btn-outline-primary" [disabled]="loginForm.invalid"
+                            <button type="submit" class="btn btn-outline-primary" 
                                 style="margin-left:200px">
                                 Login
                             </button>
-
 
 
                             <!-- <button type="submit" class="btn btn-outline-primary"  style="margin-left:240px" > Login  </button> -->

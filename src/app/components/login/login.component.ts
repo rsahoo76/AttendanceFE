@@ -160,8 +160,9 @@ onSubmit() {
   this.authService.login(email,password).subscribe(
     (response: any) => {
       if (response.success) {
-        alert(response.message)
-        
+        // alert(response.message)
+        console.log(response.message);
+
         // Navigate to the home page or another route after successful login
         this.router.navigate(['/home']);
       } 
