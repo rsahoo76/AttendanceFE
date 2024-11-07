@@ -19,34 +19,6 @@ export class StudentComponent implements OnInit{
 
   constructor(private authservice: AuthService){}
 
-  /*
-  calendarOptions: CalendarOptions = {
-    initialView: 'dayGridMonth',
-    weekends: false, // initial value
-    
-    plugins: [dayGridPlugin, interactionPlugin],
-    dateClick: (arg) => this.handleDateClick(arg)
-    ,
-    // events: [
-    //   { title: 'event 1', date: '2019-04-01' },
-    //   { title: 'event 2', date: '2019-04-02' }
-    // ]
-
-    headerToolbar: {
-      left: 'prev,next today',
-      center: 'title',
-      right: 'dayGridMonth,dayGridWeek,dayGridDay' // user can switch between the two
-      // right: 'dayGridMonth,timeGridWeek,timeGridDay'
-    },
-  };
-  handleDateClick(arg: DateClickArg) {
-    alert('date click! ' + arg.dateStr)
-  }
-  toggleWeekends() {
-    this.calendarOptions.weekends = !this.calendarOptions.weekends // toggle the boolean!
-  }
-*/
-
 ngOnInit(): void {
   this.authservice.getCalendar().subscribe({
     next: (data : any) => {

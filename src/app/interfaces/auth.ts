@@ -6,8 +6,6 @@ export interface user {
     password: string;
     phoneNumber: string;
     location: string;
-    // department: string;
-    // roles: string;
 
     department: Department;
     roles: Roles;

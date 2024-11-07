@@ -84,7 +84,6 @@ onSubmit() {
 
         this.registerForm.reset();
         // this.router.navigate(['/home'])
-        // Optionally, we can redirect the user to another page or show a success message
       },
       (error: { error: { message: string; }; }) => {
         console.error('Registration failed:', error);
@@ -100,14 +99,6 @@ onSubmit() {
   }
   
 }
-
-// onSubmit() {
-// this.httpClient.post<any>('http://localhost:8080/test', {id: 100, name: 'TestDeptartpmentfrom front end'}).subscribe({
-//   next: (res) => console.log(res)
-
-  
-// })
-// }
 
 openDialog(){
   this.dialogRef.open(ModalpopupComponent)

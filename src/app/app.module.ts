@@ -52,12 +52,6 @@ import { ButtonModule } from 'primeng/button';
 
 import { Tooltip } from 'primeng/tooltip';
 
-// FullCalendarModule.registerPlugins([
-//   interactionPlugin,
-//   dayGridPlugin,
-//   timeGrigPlugin
-// ])
-
 
 @NgModule({
   declarations: [

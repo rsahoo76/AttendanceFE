@@ -17,16 +17,12 @@ export class EditEventDialogComponent {
   notes!: string;   // Added notes field
   userEmail!: string;
   counter!: number;
-  // formattedStart !: Date ;
-  // formattedEnd!: Date;
 
   constructor(
     public dialogRef: MatDialogRef<EditEventDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any
   ) {
     this.title = data.event.title;
-    //  record.start.substring(record.start.indexOf('T') + 1, record.start.indexOf('.'))
-    //  data.event.startStr.substring(data.event.startStr.indexOf('T')+1,data.event.startStr.indexof('.'))
     this.start = data.event.startStr;
     this.end = data.event.endStr;
     this.attended = false;
@@ -44,17 +40,11 @@ export class EditEventDialogComponent {
   onSave(): void {
     this.dialogRef.close({
 
-    //    const formattedStart = new Date(this.start).toISOString().slice(0, 19);  // Get "YYYY-MM-DDTHH:mm:ss"
-    // const formattedEnd = new Date(this.end).toISOString().slice(0, 19);
-
-     formattedStart : new Date(this.start).toISOString(),  // Full ISO string
-     formattedEnd: new Date(this.end).toISOString(), 
-
       title: this.title,
       start: this.start,
       end: this.end,
       attended: this.attended,
-      notes: this.notes,  // Pass notes along with other data
+      notes: this.notes,  
       userEmail: this.userEmail,        
 
     });

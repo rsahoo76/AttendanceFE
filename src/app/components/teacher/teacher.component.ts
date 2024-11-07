@@ -16,13 +16,9 @@ status!: String;
 userEmail!: String;
 events!: any;
 userId!: number;
-// title!: any;
-// start!: any;
-// end!: any;
 searchValue: string | undefined;
 
 constructor(private authservice: AuthService,
-            // private homecomponent: HomeComponent
 ){}
 
 
@@ -65,27 +61,6 @@ setNewUserName(event: Event): void {
   console.log('setNewUserName', (event.target as HTMLTextAreaElement).value);
 }
 
-// changeStatus(newStatus: string) {
-//   this.status = newStatus;
-
-//   // Call your service or logic to save the updated status
-//   this.authservice.updateStatus(this.status).subscribe(response => {
-//     console.log(`Status updated to ${this.status}`);
-//   });
-// }
-
-  // approveRequest(id: number, approve: boolean) {
-  //   this.authService.approveAttendance(id, approve)
-  //     .subscribe((response: any) => {
-  //       console.log(response);
-  //       // this.loadPendingRequests(); // Reload pending requests
-  //     }, (error: any) => {
-  //       console.error('Error approving request:', error);
-  //     });
-  // }
-
-  // this.homecomponent.updateEventStatus(title,start,end,status);
-
 
 approveEvent(event: any) {
   this.statusChange.emit({ event: event, status: 'Approved' });
@@ -95,14 +70,6 @@ approveEvent(event: any) {
 rejectEvent(event: any) {
   this.statusChange.emit({ event: event, status: 'Rejected' });
 }
-
-// approveEvent(event: any) {
-//   this.authservice.updateEventStatus(event, 'Approved');
-// }
-
-// rejectEvent(event: any) {
-//   this.authservice.updateEventStatus(event, 'Rejected');
-// }
 
 }
 

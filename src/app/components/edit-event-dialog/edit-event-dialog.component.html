@@ -1,73 +1,20 @@
-<!-- <p>edit-event-dialog works!</p>
-<div class="dialog-container">
-<h1 mat-dialog-title>Edit Event</h1>
-<div mat-dialog-content>
-  <mat-form-field>
-    <mat-label>Title</mat-label>
-    <input matInput [(ngModel)]="title">
-  </mat-form-field>
-  <mat-form-field>
-    <mat-label>Start Date</mat-label>
-    <input matInput type="date" [(ngModel)]="start">
-  </mat-form-field>
-  <mat-form-field>
-    <mat-label>End Date</mat-label>
-    <input matInput type="date" [(ngModel)]="end">
-  </mat-form-field>
-</div>
-<div mat-dialog-actions>
-  <button mat-button (click)="onCancel()">Cancel</button>
-  <button mat-button (click)="onSave()">Save</button>
-</div>
-</div> -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <div class="dialog-container" >
-  <!-- <h1 mat-dialog-title>Edit Event</h1> -->
   <div mat-dialog-content class="dialog-content">
     <div class="dialog-form-field">
       <mat-label class="justify-content-center" style="color: black;" > {{ title }} </mat-label>
     </div>
     <br>
 
-    <!-- <mat-form-field appearance="fill" class="defaultView"> -->
-      <!-- <h5 style="color: black;">Start:{{start}}</h5> -->
       <mat-label style="color: black;">Start : {{start}} </mat-label><br>
-      <!-- <input matInput  [(ngModel)]="start"> -->
-    <!-- </mat-form-field> -->
    
-    <!-- <mat-form-field  class="dialog-form-field"> -->
-      <!-- <h5 style="color: black;">End:{{end}}</h5> -->
-      <mat-label style="color: black;">End : {{end}} </mat-label> <br>
-      <!-- <input matInput  [(ngModel)]="end"> -->
-    <!-- </mat-form-field> -->
-    
+      <mat-label style="color: black;">End : {{end}} </mat-label> <br>    
 
-    <!-- <mat-form-field > -->
       <h5 style="color: black;">Notes : </h5>
-    <!-- </mat-form-field> -->
 
-    <!-- <mat-form-field class="example-full-width"> -->
       <textarea matInput [(ngModel)]="notes" placeholder="Enter some keypoints..."></textarea>
-    <!-- </mat-form-field> -->
 
-
-    <!-- <label style="color: black;">Update Attendace</label> -->
     <h5 style="color: black;">Update Attendance</h5>
     <mat-radio-group [(ngModel)]="attended">
-    <!-- <mat-radio-group aria-label="Select an option"> -->
         <mat-radio-button value="true" style="font-style: normal;">
           <h5>Present</h5></mat-radio-button>
         <mat-radio-button value="false"><h5>Absent</h5></mat-radio-button>
@@ -79,48 +26,3 @@
   </div>
   </div>
 </div>
-
-
-<!-- 
-
-
-<div class="dialog-container">
-  <div mat-dialog-content class="dialog-content">
-    <div class="dialog-form-field">
-      <mat-label style="color: black;">Title: {{ title }}</mat-label>
-    </div>
-    <br>
-
-    <mat-form-field appearance="fill" class="dialog-form-field">
-      <mat-label style="color: black;">Start:</mat-label>
-      <input matInput [(ngModel)]="start" placeholder="Start Time" />
-    </mat-form-field>
-   
-    <mat-form-field appearance="fill" class="dialog-form-field">
-      <mat-label style="color: black;">End:</mat-label>
-      <input matInput [(ngModel)]="end" placeholder="End Time" />
-    </mat-form-field>
-
-    <mat-form-field appearance="fill" class="dialog-form-field">
-      <mat-label style="color: black;">Notes:</mat-label>
-      <textarea matInput [(ngModel)]="notes" placeholder="Enter some key points..."></textarea>
-    </mat-form-field>
-
-    <h5 style="color: black;">Update Attendance</h5>
-    <mat-radio-group [(ngModel)]="attended">
-      <mat-radio-button value="true" style="font-style: normal;">
-        <h5>Present</h5>
-      </mat-radio-button>
-      <mat-radio-button value="false">
-        <h5>Absent</h5>
-      </mat-radio-button>
-    </mat-radio-group>
-  </div>
-
-  <div mat-dialog-actions class="dialog-actions">
-    <button mat-button (click)="onCancel()">Cancel</button>
-    <button mat-raised-button color="primary" (click)="onSave()">Save</button>
-  </div>
-</div> -->
-
-

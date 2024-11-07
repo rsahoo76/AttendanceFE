@@ -16,7 +16,7 @@ export class DashboardComponent {
   user: any;
 
   constructor( private authservice: AuthService) { }
-// private router: Router,
+
   ngOnInit(): void {
     // to fetch users from authservice
     this.authservice.getLoggedUser().subscribe(

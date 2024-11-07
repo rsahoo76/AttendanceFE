@@ -1,414 +1,3 @@
-// import { Component, ViewChild } from '@angular/core';
-// import { Route } from '@angular/router';
-// import { Router } from '@angular/router';
-// import { AuthService } from '../../services/auth.service';
-// // import { user } from '../../interfaces/auth';
-// import { User } from '../../user';
-// import $ from 'jquery';
-// import { HttpErrorResponse } from '@angular/common/http';
-// // import { MatDialog } from '@angular/material/dialog';
-// import { FullCalendarComponent } from '@fullcalendar/angular';
-// import { CalendarOptions, EventInput } from '@fullcalendar/core';
-// import dayGridPlugin from '@fullcalendar/daygrid';
-// import interactionPlugin, { DateClickArg } from '@fullcalendar/interaction'; // for dateclick
-// import resourceTimeGridPlugin from '@fullcalendar/resource-timegrid';
-// import timeGridPlugin from '@fullcalendar/timegrid'
-// import rrulePlugin from '@fullcalendar/rrule';
-
-// @Component({
-//   selector: 'app-home',
-//   templateUrl: './home.component.html',
-//   styleUrl: './home.component.css'
-// })
-// export class HomeComponent {
-
-//   // users!: User[];
-//   users: User[] = [];
-//   // allday!:  false;
-
-
-//   @ViewChild('calendar') calendarComponent!: FullCalendarComponent;
-
-//   constructor(private router: Router,
-//               private authservice: AuthService){}
-
-
-// ngOnInit(): void {
-
-//   // this.authservice.getUsers().subscribe({
-//       //   next: (data) => {
-//       //     this.users = data;
-//       //   },
-//       //   error: (error: HttpErrorResponse) => {
-//       //     console.error('There was an error!', error);
-//       //   }
-//       // });
-// }
-
-//   logout(){
-//     this.router.navigate(['/login']);
-
-//     console.log("Logged Out Successfully!!");
-//     alert('Logged Out Successfully!!');
-//   }
-
-//   public sidebarOpen: boolean = false;
-
-//    public sidebar: boolean = false;
-
-//    public toggleSidebar() {
-//     // alert('toggleSidebar clicked......');
-//     if ($('.sidebar').css('left') == "-200px") {
-//         this.sidebarOpen = true;
-//         $('.sidebar').css('left', 0);
-//         $('.sidebar').css('box-shadow', '5px 5px 2px #e6e6e6aa');
-//     } else {
-//         this.sidebarOpen = false;
-//         $('.sidebar').css('left', '-200px');
-//         $('.sidebar').css('box-shadow', 'none');
-//     }
-// }
-
-
-// calendarOptions: CalendarOptions = {
-//   // initialView: 'dayGridMonth',
-//   initialView: 'timeGridWeek',
-//   weekends: true, // initial value
-
-
-//   plugins: [dayGridPlugin, interactionPlugin, resourceTimeGridPlugin,timeGridPlugin,rrulePlugin],
-//   dateClick: (arg) => this.handleDateClick(arg),
-//   // events: [
-//   //   { title: 'event 1', date: '2019-04-01' },
-//   //   { title: 'event 2', date: '2019-04-02' }
-//   // ]
-//  /* events: [
-//     {
-//       title: 'Maths',
-//       start: '2024-06-17T09:00:00',
-//       end: '2024-06-17T10:30:00'
-//     }
-//   ],*/
-//   defaultAllDayEventDuration : 12,
-//   navLinks: true,
-//   nowIndicator: true,
-//   timeZone: 'IST',
-//   slotDuration: '00:30:00',
-//   slotMaxTime: '24:00:00',
-//   // scrollTime: '06:00:00',
-//   headerToolbar: {
-//     left: 'prev,next today',
-//     center: 'title',
-//     // right: 'dayGridMonth,dayGridWeek,dayGridDay' // user can switch between the two
-//     // right: 'dayGridMonth,timeGridWeek,timeGridDay'
-
-//     right: 'dayGridMonth,resourceTimeGridWeek,resourceTimeGridDay'
-//   },
-//   businessHours: [ // specify an array instead
-//   {
-//     daysOfWeek: [ 1, 2, 3, 4, 5 ], // Monday, Tuesday, Wednesday
-//     startTime: '09:00', // 8am
-//     endTime: '17:00' // 6pm
-//   }
-//   ],
-//   // plugins: [timeGridPlugin],
-//   // initialView: 'timeGridWeek',
-//   // headerToolbar: {
-//   //   left: 'prev,next',
-//   //   center: 'title',
-//   //   right: 'timeGridWeek,timeGridDay' // user can switch between the two
-//   // }
-//   views: {
-//     timeGridFourDay: {
-//       type: 'timeGrid',
-//       duration: { hour : 9 }
-//     }
-//   },
-
-//   resources: [
-//     {
-//       // title: 'Math Class',
-//       // start: '2024-06-17T09:00:00',
-//       // end: '2024-06-17T10:30:00'
-//      }
-//     //,
-//     // {
-//     //   title: 'Physics Class',
-//     //   start: '2024-06-17T11:00:00',
-//     //   end: '2024-06-17T12:30:00'
-//     // }
-//   ],
-//  /* */
-
-//   events: [
-
-//     /*
-//     {
-//       title: 'my recurring event',
-//       rrule: {
-//         freq: 'monthly',
-//         interval: 12,
-//         byweekday: [ 'mo', 'fr' ],
-//         dtstart: '2024-01-01T90:00:00', // will also accept '20120201T103000'
-//         until: '2024-12-31' // will also accept '20120201'
-//       }
-//     },*/
-//     //Mon
-//     {
-//       title: 'Machine Learning',
-//       start: '2024-06-17T09:00:00',
-//       end: '2024-06-17T10:00:00'
-//     },
-//     {
-//       title: 'Data Structures & Algorithm',
-//       start: '2024-06-17T10:00:00',
-//       end: '2024-06-17T11:00:00'
-//     },
-//     {
-//       title: 'Design Pattern',
-//       start: '2024-06-17T11:00:00',
-//       end: '2024-06-17T12:00:00'
-//     },
-//     {
-//       title: 'Internet of Things',
-//       start: '2024-06-17T12:00:00',
-//       end: '2024-06-17T13:00:00'
-//     },
-//     {
-//       title: 'Lunch Break',
-//       start: '2024-06-17T13:00:00',
-//       end: '2024-06-17T14:00:00',
-//       color: 'orange'
-//     },
-//     {
-//       title: 'Operating System',
-//       start: '2024-06-17T14:00:00',
-//       end: '2024-06-17T15:00:00'
-//     },
-//     {
-//       title: 'Artificial Intelligence',
-//       start: '2024-06-17T15:00:00',
-//       end: '2024-06-17T16:00:00'
-//     },
-//     {
-//       title: 'Machine Learning',
-//       start: '2024-06-17T16:00:00',
-//       end: '2024-06-17T17:00:00'
-//     },
-
-//     //Tue
-//     {
-//       title: 'Internet of Things',
-//       start: '2024-06-18T09:00:00',
-//       end: '2024-06-18T10:00:00'
-//     },
-//     {
-//       title: 'Machine Learning',
-//       start: '2024-06-18T10:00:00',
-//       end: '2024-06-18T11:00:00'
-//     },
-//     {
-//       title: 'Data Structures & Algorithm',
-//       start: '2024-06-18T11:00:00',
-//       end: '2024-06-18T12:00:00'
-//     },
-//     {
-//       title: 'Cyber Security',
-//       start: '2024-06-18T12:00:00',
-//       end: '2024-06-18T13:00:00'
-//     },
-//     {
-//       title: 'Lunch Break',
-//       start: '2024-06-18T13:00:00',
-//       end: '2024-06-18T14:00:00',
-//       color: 'orange'
-//     },
-//     {
-//       title: 'Design Patterns',
-//       start: '2024-06-18T14:00:00',
-//       end: '2024-06-18T15:00:00'
-//     },
-//     {
-//       title: 'Artificial Intelligence',
-//       start: '2024-06-18T15:00:00',
-//       end: '2024-06-18T16:00:00'
-//     },
-//     {
-//       title: 'Operating System',
-//       start: '2024-06-18T16:00:00',
-//       end: '2024-06-18T17:00:00'
-//      },
-
-//     //Thu
-//     {
-//       title: 'Artificial Intelligence',
-//       start: '2024-06-20T09:00:00',
-//       end: '2024-06-20T10:00:00'
-//     },
-//     {
-//       title: 'Internet of Things',
-//       start: '2024-06-20T10:00:00',
-//       end: '2024-06-20T11:00:00'
-//     },
-//     {
-//       title: 'Data Structures & Algorithm',
-//       start: '2024-06-20T11:00:00',
-//       end: '2024-06-20T12:00:00'
-//     },
-//     {
-//       title: 'Design Patterns',
-//       start: '2024-06-20T12:00:00',
-//       end: '2024-06-20T13:00:00'
-//     },
-//     {
-//       title: 'Lunch Break',
-//       start: '2024-06-20T13:00:00',
-//       end: '2024-06-20T14:00:00',
-//       color: 'orange'
-//     },
-//     {
-//       title: 'Cyber Security',
-//       start: '2024-06-20T14:00:00',
-//       end: '2024-06-20T15:00:00'
-//     },
-//     {
-//       title: 'Machine Learning',
-//       start: '2024-06-20T15:00:00',
-//       end: '2024-06-20T16:00:00'
-//     },
-//     {
-//       title: 'Operating System',
-//       start: '2024-06-20T16:00:00',
-//       end: '2024-06-20T17:00:00'
-//      },
-
-//      //Fri
-//      {
-//       title: 'Internet of Things',
-//       start: '2024-06-21T09:00:00',
-//       end: '2024-06-21T10:00:00'
-//     },
-//     {
-//       title: 'Machine Learning',
-//       start: '2024-06-21T10:00:00',
-//       end: '2024-06-21T11:00:00'
-//     },
-//     {
-//       title: 'Operating System',
-//       start: '2024-06-21T11:00:00',
-//       end: '2024-06-21T12:00:00'
-//      },
-//      {
-//       title: 'Data Structures & Algorithm',
-//       start: '2024-06-21T12:00:00',
-//       end: '2024-06-21T13:00:00'
-//     },
-//     {
-//       title: 'Lunch Break',
-//       start: '2024-06-21T13:00:00',
-//       end: '2024-06-21T14:00:00',
-//       color: 'orange'
-//     },
-//     {
-//       title: 'Cyber Security',
-//       start: '2024-06-21T14:00:00',
-//       end: '2024-06-21T15:00:00'
-//     },
-//     {
-//       title: 'Design Patterns',
-//       start: '2024-06-21T15:00:00',
-//       end: '2024-06-21T16:00:00'
-//     },
-//     {
-//       title: 'Artificial Intelligence',
-//       start: '2024-06-21T16:00:00',
-//       end: '2024-06-21T17:00:00'
-//     }
-
-
-//   ],
-//   // eventTimeFormat: { // like '14:30:00'
-//     // hour: '2-digit',
-//     // minute: '2-digit',
-//     // second: '2-digit',
-//     // meridiem: false
-//   // },
-
-// /* */
-
-// slotLabelFormat: {
-//   hour: 'numeric', 
-//   // minute: '2-digit', 
-//   omitZeroMinute: false, 
-//   hour12: true 
-// },
-
-// //  eventTimeFormat: { hour: '2-digit', minute: '2-digit', hour12: false },
-
-
-// //Recurring Events
-// /* events: [
-//   {
-//     title: 'my recurring event',
-//     rrule: {
-//       freq: 'weekly',
-//       // interval: 5,
-//       byweekday: [ 'mo', 'tu', 'we','th', 'fr' ],
-//       dtstart: '2024-05-01T10:30:00', // will also accept '20120201T103000'
-//       until: '2024-06-30' // will also accept '20120201'
-//     }
-//   }
-// ]
-// */
-
-// };
-
-
-
-
-// /*
-// calendarOptions: CalendarOptions = {
-//   initialView: 'dayGridMonth',
-//   weekends: true,
-//   plugins: [dayGridPlugin, interactionPlugin, resourceTimeGridPlugin, timeGridPlugin],
-//   dateClick: (arg) => this.handleDateClick(arg),
-//   events: [
-//     { id: '1', resourceId: '1', title: 'Math Class', start: '2024-06-17T09:00:00', end: '2024-06-17T10:30:00' },
-//     { id: '2', resourceId: '2', title: 'Physics Class', start: '2024-06-17T11:00:00', end: '2024-06-17T12:30:00' }
-//   ],
-//   headerToolbar: {
-//     left: 'prev,next today',
-//     center: 'title',
-//     right: 'dayGridMonth,resourceTimeGridWeek,resourceTimeGridDay'
-//   },
-//   resources: [
-//     { id: '1', title: 'Math Room' },
-//     { id: '2', title: 'Physics Lab' }
-//   ]
-// };
-
-// */
-
-
-
-
-
-// handleDateClick(arg: DateClickArg) {
-//   alert('date click! ' + arg.dateStr)
-// }
-
-// toggleWeekends() {
-//   this.calendarOptions.weekends = !this.calendarOptions.weekends // toggle the boolean!
-// }
-
-// someMethod() {
-//   let calendarApi = this.calendarComponent.getApi();
-//   calendarApi.next();
-// }
-
-// }
-
-
 
 
 import { Component, ViewChild } from '@angular/core';
@@ -440,7 +29,6 @@ import { subscribe } from 'node:diagnostics_channel';
 export class HomeComponent {
   users: User[] = [];
   calendar: Calendar[] = [];
-  // event! : any[];
   approved: boolean = false;
   user: any;
   title!: string;
@@ -448,7 +36,7 @@ export class HomeComponent {
   end!: string;
   attendance: Attendance[] = [];
   eventDate!: string;
-  attendanceData: any[] = [];  // Assuming attendance data is stored here
+  attendanceData: any[] = [];  
   StartStr: any[] = [];
   EndStr: any[] = [];
   MatchedDates: any [] = [];
@@ -496,12 +84,6 @@ export class HomeComponent {
     this.fetchAttendanceData();
 
   }
-
-  // logout() {
-  //   this.router.navigate(['/login']);
-  //   console.log("Logged Out Successfully!!");
-  //   alert('Logged Out Successfully!!');
-  // }
 
   logout() {
     const confirmLogout = confirm('Are you sure you want to logout?');
@@ -558,95 +140,7 @@ export class HomeComponent {
     ],
 
 
-    /* events:[
-       this.moveCalendarToSlot(),
-     ],*/
-    /*
-        events: [
-          { 
-            title: 'Machine Learning',
-            rrule: {
-                // freq: 'weekly',
-                // interval: 5,
-                // count: 5,
-                // dtstart: parse("20240617T090000")
-    
-              freq: 'weekly',
-              byweekday: ['mo', 'tu', 'th', 'fr'],
-              dtstart: '2024-06-17T09:00:00',
-              until: '2024--6-17T10:00:00'
-            },
-            
-            duration: '01:00'
-          },
-          {
-            title: 'Data Structures & Algorithm',
-            rrule: {
-              freq: 'weekly',
-              byweekday: ['mo', 'tu', 'th', 'fr'],
-              dtstart: '2024-06-17T10:00:00'
-            },
-            duration: '01:00'
-          },
-          {
-            title: 'Design Pattern',
-            rrule: {
-              freq: 'weekly',
-              byweekday: ['mo', 'tu', 'th', 'fr'],
-              dtstart: '2024-06-17T11:00:00'
-            },
-            duration: '01:00'
-          },
-          {
-            title: 'Internet of Things',
-            rrule: {
-              freq: 'weekly',
-              byweekday: ['mo', 'tu', 'th', 'fr'],
-              dtstart: '2024-06-17T12:00:00'
-            },
-            duration: '01:00'
-          },
-          {
-            title: 'Lunch Break',
-            rrule: {
-              freq: 'weekly',
-              byweekday: ['mo', 'tu', 'th', 'fr'],
-              dtstart: '2024-06-17T13:00:00'
-            },
-            duration: '01:00',
-            color: 'orange'
-          },
-          {
-            title: 'Operating System',
-            rrule: {
-              freq: 'weekly',
-              byweekday: ['mo', 'tu', 'th', 'fr'],
-              dtstart: '2024-06-17T14:00:00'
-            },
-            duration: '01:00'
-          },
-          {
-            title: 'Artificial Intelligence',
-            rrule: {
-              freq: 'weekly',
-              byweekday: ['mo', 'tu', 'th', 'fr'],
-              dtstart: '2024-06-17T15:00:00'
-            },
-            duration: '01:00'
-          },
-          {
-            title: 'Cyber Security',
-            rrule: {
-              freq: 'weekly',
-              byweekday: ['tu', 'th', 'fr'],
-              dtstart: '2024-06-18T16:00:00'
-            },
-            duration: '01:00'
-          }
-        ],
-    */
-
-    //  No error is thrown but data is not visible on the screen     
+    //  No error is thrown but data was not visible on the screen     
         eventClick: this.handleEventClick.bind(this),
     eventSources: [
       {events: (info, successCallback, failureCallback) => this.fetchevents(info, successCallback, failureCallback),},
@@ -680,23 +174,6 @@ export class HomeComponent {
     }
   };
 
-  /*
-  handleEventClick(arg: any) {
-    const dialogRef = this.dialog.open(EditEventDialogComponent, {
-      width: '250px',
-      data: { event: arg.event }
-    });
-
-    dialogRef.afterClosed().subscribe(result => {
-      if (result) {
-        arg.event.setProp('title', result.title);
-        arg.event.setStart('start',result.startTime);
-        arg.event.setEnd('end',result.endTime);
-      }
-    });
-  } 
-  */
-
   handleEventClick(arg: any) {
     if (this.isTodayOrTomorrow(arg.event.start)) {
       const dialogRef = this.dialog.open(EditEventDialogComponent, {
@@ -710,10 +187,8 @@ export class HomeComponent {
           arg.event.setProp('title', result.title);
           arg.event.setStart(result.start);
           arg.event.setEnd(result.end);
-          // arg.event.setAttended(result.attended);
 
           this.saveAttendance({
-            // eventId: arg.event.id,
             title: result.title,
             start: result.start,
             end: result.end,
@@ -778,17 +253,11 @@ export class HomeComponent {
     const currentEvent = arg.event;
 
     // Call getEventColor to get the color based on title, date, startTime, and endTime
-    // const color = this.getEventColor(title, date, startTime, endTime);
     const color = title === "Lunch Break" ? "orange" : this.getEventColor(title, date, startTime, endTime);
   
     // Apply the color to the event element
     arg.el.style.backgroundColor = color;
     arg.el.style.borderColor = color;
-
-    // if (arg.event.allDay) {
-    //   // Mark the date as having an all-day event
-    //   this.allDayDates[eventDate] = true;
-    // }
 
     if (arg.event.allDay && arg.event.extendedProps['function'] === 'Holiday') {
       this.allDayDates[eventDate] = true;
@@ -834,11 +303,6 @@ if (currentEvent.allDay) {
   saveAttendance(attendanceData: any): void {
     this.authservice.saveAttendance(attendanceData).subscribe((response: any) => {
 
-      // let userdetails = sessionStorage.getItem('userdetails');
-      // if (userdetails) {
-      //   let user = JSON.parse(userdetails);
-      // }
-
       let userDetails = sessionStorage.getItem('userdetails');
       let userEmail = null;
 
@@ -868,38 +332,6 @@ if (currentEvent.allDay) {
     });
   }
 
-  /*
-  eventData(){
-    const array: any[] = [];
-    for (let record1 of this.StartStr) {
-      //here I want to compare the date, start and end time of each event which is passed from the eventDidMount
-      for (let record of this.attendanceData) {
-
-        // console.log('record Date : ',record.start.substring(0,record.start.indexOf('T')))
-        // console.log('record1 Date : ',record1.substring(0,record1.indexOf('T')))
-        
-
-
-        if(record.start.substring(0,record.start.indexOf('T')) === record1.substring(0,record1.indexOf('T'))){
-          console.log('matching dates are: ',record.start.substring(0,record.start.indexOf('T')) , record1.substring(0,record1.indexOf('T')))
-          // this.MatchedDates  = record1.substring(0,record1.indexOf('T')); includes duplicate records 
-          array.push(record1.substring(0,record1.indexOf('T')));
-
-          // if(record.start.substring(record.start.indexOf('T') + 1, record.start.indexOf('.')) == record1.substring(record1.indexOf('T')+1,record1.indexOf(' '))){
-          //   console.log('Time : ', record.start.indexOf('T') + 1, record.start.indexOf('.')) , record1.substring(record1.indexOf('T')+1,record1.indexOf(''));
-          // }
-        }
-      }
-    }
-    this.MatchedDates = array.filter((value, index, self) => self.indexOf(value) === index)
-
-    console.log('Dates Array : ', this.MatchedDates);
-    
-  }
-*/
-
-  // MatchedDates: any[] = [];
-
 eventData() {
   const array: any[] = [];
   for (let record1 of this.StartStr) {
@@ -910,7 +342,7 @@ eventData() {
       const recordEndTime = record.end.substring(record.end.indexOf('T') + 1, record.end.indexOf('.'));
       
       const eventDate = record1.substring(0, record1.indexOf('T'));
-      const eventStartTime = record1.substring(record1.indexOf('T') + 1); // Extracts '09:00:00'
+      const eventStartTime = record1.substring(record1.indexOf('T') + 1); // Extracts only time '09:00:00'
 
       // const eventEndTime = record1.substring(record1.indexOf('T') + 1, record1.indexOf('.'));
 
@@ -1341,15 +773,6 @@ eventData() {
     })
 
     // eventColor: '#378006'
-    // let events ;
-    // let element! : any;
-    // this.authservice.getCalendar().subscribe({
-    //   next : (data: any)=>{
-    //   for (let index = 4; index < data.length; index++) {
-    //      element = data[index];
-    //   }
-    //  }
-    // })
   };
 
   /*  All day Holiday events to display  */
@@ -1368,7 +791,7 @@ eventData() {
           endTime: '05:00:00',
 
           allDay: true,
-          overlap: false, // Prevents overlap with other events
+          overlap: true, // Prevents overlap with other events
           display: 'auto', // Places the event in the foreground
 
           extendedProps: {
@@ -1402,12 +825,6 @@ eventData() {
       e.end?.getTime() === new Date(end).getTime()
     );
 
-    // const event2 = this.eventColorUpdate(event);
-    // let event2 : any;
-    // let event = calendarApi.getEvents().find(e => e.title === title && e.startStr === start && e.endStr === end );
-    // event= calendarApi.getCurrentData
-    // if (title === event2.title && start === event2.start && end === event2.end) {
-
     if (event) {
 
       switch (status) {
@@ -1432,35 +849,6 @@ eventData() {
   eventColorUpdate(eventData: any): any {
     const { event } = eventData;
 
-    // this.title = eventData.title; this.start = eventData.startTime; this.end = eventData.endTime;
-
-    // this.authservice.getAttendance().subscribe({
-    //   next: (data : any) => {
-    //     this.attendance = data;
-    //     if(data.title===event.title && data.start === event.startStr && data.end === event.endStr){
-    //       if(data.status){
-    //         switch (data.status) {
-    //           case 'Approved':
-    //             event.setProp('backgroundColor', 'green');
-    //             event.setProp('borderColor', 'black');
-    //             event.setProp('textColor','black');
-    //             break;
-    //           case 'Rejected':
-    //             event.setProp('backgroundColor', 'red');
-    //             event.setProp('borderColor', 'black');
-    //             event.setProp('textColor','black');
-    //             break;
-    //           default:
-    //             event.setProp('backgroundColor', 'orange');
-    //             break;
-    //         }
-    //       }
-    //     }
-    //   },
-    // });
-
-    //.toTimeString()
-
     this.authservice.getAttendance().subscribe({
       next: (data: any[]) => {
         this.attendance = data;
@@ -1471,18 +859,6 @@ eventData() {
           console.log('Comparing start:', record.start, eventData.startTime);
           console.log('Comparing end:', record.end, eventData.endTime);
          
-          // console.log('time: ', record.start.substring(record.start.indexOf('T') + 1))
-          // console.log('time: ', record.start.substring(0, record.start.indexOf('.')))
-          // console.log('time: ', record.start.substring(record.start.indexOf('T') + 1, record.start.indexOf('.')))
-
-          // console.log('date:', record.start.substring(0, record.start.indexOf('T')))
-
-
-          // record.title == eventData.title &&
-          //   record.start.substring(record.start.indexOf('T') + 1, record.start.indexOf('.')) == eventData.startTime &&
-          //   record.end.substring(record.end.indexOf('T') + 1, record.end.indexOf('.')) == eventData.endTime
-
-
           if (record.title == eventData.title && 
             record.start.substring(record.start.indexOf('T') + 1, record.start.indexOf('.')) == eventData.startTime &&
             record.end.substring(record.end.indexOf('T') + 1, record.end.indexOf('.')) == eventData.endTime)
@@ -1525,7 +901,6 @@ eventData() {
 
   }
 
-
   handleDateClick(arg: DateClickArg) {
     alert('date click! ' + arg.dateStr);
   }
@@ -1541,81 +916,4 @@ eventData() {
     calendarApi.next();
   }
 
-  /*
-    // Function to handle approval using title, start, and end
-    approveEvent(title: string, start: string, end: string) {
-      this.updateEventStatus(title, start, end, 'approved');
-    }
-  
-    // Function to handle rejection using title, start, and end
-    rejectEvent(title: string, start: string, end: string) {
-      this.updateEventStatus(title, start, end, 'rejected');
-    }
-  
-    //to update event status and color based on title, start, and end
-    updateEventStatus(title: string, start: string, end: string, status: string | null) {
-      const event = this.events.find((e: { title: string; start: string; end: string; }) => e.title === title && e.start === start && e.end === end);
-      if (event) {
-        event.status = status;
-        switch (status) {
-          case 'approved':
-            event.color = 'green';
-            break;
-          case 'rejected':
-            event.color = 'red';
-            break;
-          default:
-            event.color = 'orange'; // status is null or any other case
-            break;
-        }
-      }
-    }
-*/
-  /*
-  
-  onStatusChange(event: any, status: string) {
-    // Handle the event, update the UI, or apply any logic
-    console.log('Event status changed:', event, status);
-    if (status === 'Approved' || status === 'Rejected') {
-      this.applyGreenStatus(event); // Example: Change color to green
-    }
-    
-  }
-  
-  applyGreenStatus(event: any) {
-    // Add logic to change the event display color to green
-  
-    const eventdata = this.events.find((e: { title: string; start: string; end: string; }) => e.title === title && e.start === start && e.end === end);
-    if (event) {
-  
-    switch (status) {
-      case 'Approved':
-        event.setProp('backgroundColor', 'green');
-        event.setProp('borderColor', 'green');
-        break;
-      case 'Rejected':
-        event.setProp('backgroundColor', 'red');
-        break;
-      default:
-        event.setProp('backgroundColor', 'orange');
-        break;
-    }
-   }
-  }
-  
-  */
-
 }
-// function handleEventDate(id: string, startDate: Date | null, endDate: Date | null) {
-//   // throw new Error('Function not implemented.');
-
-//   console.log('Start Date: ', startDate);
-//   console.log('End Date: ', endDate);
-  
-  
-// }
-
-
-
- // console.log('start:',record.start.toTimeString);     --undefined
-          // console.log('start:',record.start.toTimeString());  -- this is not working reloading the screen and all data is discarded 

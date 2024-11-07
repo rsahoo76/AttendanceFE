@@ -17,18 +17,7 @@ export class AuthService {
   private baseUrl = 'http://localhost:9090';
   //Currently updated with the recent URL I have generated from backend  
 
-
-  // private statusChangeSubject = new Subject<any>();
-
   constructor(private http: HttpClient) { }
-
-
-  // statusChange$ = this.statusChangeSubject.asObservable();
-
-  // updateEventStatus(event: any, status: string) {
-  //   event.status = status;
-  //   this.statusChangeSubject.next({ event, status });
-  // }
 
   register(user: any): Observable<any> {
     return this.http.post(`${this.baseUrl}/register`, user);
@@ -37,11 +26,6 @@ export class AuthService {
   getLoggedUser(): Observable<any> {
     return this.http.get<any>(`${this.baseUrl}/loggedUser`);
   }
-
-  //Not Working
-  // getloggedUser(): Observable<any> {
-  //   return this.http.get(`${this.baseUrl}/user`);
-  // }
 
   getUsers(): Observable<User[]> {
     return this.http.get<User[]>(`${this.baseUrl}/users`);
@@ -78,31 +62,6 @@ export class AuthService {
   approveAttendance(id: number, approve: boolean): Observable<any> {
     return this.http.post(`${this.baseUrl}/approve?id=${id}&approve=${approve}`, {});
   }
-
-  // getCurrentUser(): Observable<any> {
-  //   return this.http.get<any>(`${this.baseUrl}/currentuser`);
-  // }
-
-  // getEvents(): Observable<Calendar[]> {
-  //   return this.http.get<Calendar[]>(`${this.baseUrl}/Events`);
-  // }
-
-  // @Bean issue 
-  /*
-login(email: string, password: string): Observable<any> {
-  const loginDTO = { email, password };
-  return this.http.post<any>(`${this.baseUrl}/login`, loginDTO)
-    .pipe(
-      map(response => {
-        if (response.success) {
-          // Store the token or user details if needed
-          localStorage.setItem('currentUser', JSON.stringify(response));
-        }
-        return response;
-      })
-    );
-}
-    */
 
   login(email: string, password: string): Observable<any> {
     console.log("login service called");

@@ -1,41 +1,6 @@
-<!-- 
-<p>teacher works!</p>
 
-<section>
-    <div class="example-label">Mini FAB</div>
-    <div class="example-button-row">
-      <div class="example-flex-container">
-        <div class="example-button-container">
-          <button mat-mini-fab aria-label="Example icon button with a menu icon">
-            <mat-icon>menu</mat-icon>
-          </button><br>
-        </div>
-        <div class="example-button-container">
-          <button mat-mini-fab disabled aria-label="Example icon button with a home icon">
-            <mat-icon>home</mat-icon>
-          </button><br>
-        </div>
-        <div class="example-button-container">
-            <button mat-mini-fab aria-label="Example icon button with a notification icon">
-              <mat-icon>notification</mat-icon>
-             
-            </button>
-          </div>
-      </div>
-    </div>
-  </section>
--->
 
   <app-header></app-header>
-  <!-- <button type="button" class="btn btn-primary">
-    Notifications <span class="badge badge-light">4</span>
-  </button> <br>
-
-  <button type="button" class="btn btn-primary">
-    Approvals <span class="badge badge-light">8</span>
-  </button>  -->
-
-
 
   <!-- Notification -->
 <div class="row">
@@ -68,180 +33,6 @@
 <br>
 </div>
   
-  <!-- Button trigger modal -->
-  <!-- <div class="col-md-6">
- <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
-    Requests to Approve 
-  </button> -->
-  
-  <!-- Modal -->
-  <!-- <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          <h4 class="modal-title" id="myModalLabel">Attendance Approval </h4>
-        </div>
-        <div class="modal-body">
-        <p>Approve the request  </p>
-        <p>Details : </p>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
-        </div>
-      </div>
-    </div>
-  </div> 
-</div> -->
-</div>
-
-
-   <!-- <table>
-    <thead>
-       <!-- <tr> -->
-        <!-- <th>Attribute</th>
-        <th *ngFor="let event of attendance; let i = index">Event {{ i + 1 }}</th> -->
-      <!-- </tr> --> 
-    <!-- 
-    </thead>
-    <tbody>
-      <tr>
-        <td>Title</td>
-        <td *ngFor="let event of attendance">{{ event.title }}</td>
-      </tr>
-      <tr>
-        <td>Start</td>
-        <td *ngFor="let event of attendance">{{ event.start }}</td>
-      </tr>
-      <tr>
-        <td>End</td>
-        <td *ngFor="let event of attendance">{{ event.end }}</td>
-      </tr>
-      <tr>
-        <td>Attended</td>
-        <td *ngFor="let event of attendance">{{ event.attended }}</td>
-      </tr>
-      <tr>
-        <td>Notes</td>
-        <td *ngFor="let event of attendance">{{ event.notes }}</td>
-      </tr>
-      <tr>
-        <td>User Email</td>
-        <td *ngFor="let event of attendance">{{ event.userEmail }}</td>
-      </tr>
-      
-    </tbody>
-  </table>
-   -->
-
-<!-- This is working fine but without search option  -->
-  <!-- 
-    <table>
-        <tr>
-            <td>Title</td>
-            <td>Date with Start Time</td>
-            <td>Date with End Time</td>
-            <td>Attended</td>
-            <td>Notes</td>
-            <td>Status</td>
-        </tr>
-        <tr  *ngFor="let event of attendance">
-            <td>{{ event.title }}</td>
-            <td>{{ event.start | date: 'short':'GMT'}}</td>
-            <td>{{ event.end | date: 'short':'GMT'}}</td>
-            <td>{{ event.attended}}</td>
-            <td>{{ event.notes}}</td>
-            <td>
-              <button type="button" class="btn btn-primary" *ngIf="status !== 'Approved' && status !== 'Rejected'" (click)="approveEvent(event)" >Approve</button>
-              <button type="button" class="btn btn-primary" *ngIf="status === 'Approved'" >Approved</button>
-                <button type="button" class="btn btn-danger" *ngIf="status !== 'Approved'  && status !== 'Rejected'" (click)="updateStatus(event,'Rejected');rejectEvent(event)">Reject</button>
-                <button type="button" class="btn btn-danger" *ngIf="status === 'Rejected'" disabled >Rejected</button>
-
-            </td>
-        </tr>
-  </table> -->
-
-
-
-  <!-- <div *ngFor="let event of events" [ngStyle]="{'background-color': event.color}">
-  <p>{{ event.title }} ({{ event.start }} - {{ event.end }})</p>
-  <button (click)="approveEvent(event.title, event.start, event.end)">Approve</button>
-  <button (click)="rejectEvent(event.title, event.start, event.end)">Reject</button>
-</div>
-
-      <button type="button" class="btn btn-primary" *ngIf="status === 'Approved'" (click)="EventUpdate(status)" >Approved</button>
-
- -->
-
- <!-- <div *ngFor="let event of events" [ngStyle]="{'background-color': event.color}">
-  <p>{{ event.title }}</p>
-  <button (click)="approveEvent(event.id)">Approve</button>
-  <button (click)="rejectEvent(event.id)">Reject</button>
-</div> -->
-
-
-
-<!-- 
-<table>
-  <tr>
-      <td>Title</td>
-      <td>Date with Start Time</td>
-      <td>Date with End Time</td>
-      <td>Attended</td>
-      <td>Notes</td>
-      <td>Status</td>
-  </tr>
-  <tr  *ngFor="let event of attendance">
-      <td>{{ event.title }}</td>
-      <td>{{ event.start | date: 'short':'GMT'}}</td>
-      <td>{{ event.end | date: 'short':'GMT'}}</td>
-      <td>{{ event.attended}}</td>
-      <td>{{ event.notes}}</td>
-      <td>
-          <button type="button" class="btn btn-primary" *ngIf="status !== 'Approved' && status !== 'Rejected'" (click)="approveEvent(event)" >Approve</button>
-          <button type="button" class="btn btn-primary" *ngIf="status === 'Approved'" >Approved</button>
-          <button type="button" class="btn btn-danger" *ngIf="status !== 'Approved'  && status !== 'Rejected'" (click)="updateStatus(event,'Rejected');rejectEvent(event)">Reject</button>
-          <button type="button" class="btn btn-danger" *ngIf="status === 'Rejected'" disabled >Rejected</button>
-      </td>
-
-  </tr>
-</table> -->
-
-
-
-
-<!-- Use of p-Table for sorted table  -->
- <!-- 
-
-<p-table #dt [value]="products" (sortFunction)="customSort($event)" [customSort]="true">
-    <ng-template pTemplate="header">
-        <tr>
-            <th pSortableColumn="code">
-                Code <p-sortIcon field="code" />
-            </th>
-            <th pSortableColumn="name">
-                Name <p-sortIcon field="name" />
-            </th>
-            <th pSortableColumn="category">
-                Category <p-sortIcon field="category" />
-            </th>
-            <th pSortableColumn="quantity">
-                Quantity <p-sortIcon field="quantity" />
-            </th>
-        </tr>
-    </ng-template>
-    <ng-template pTemplate="body" let-product>
-        <tr>
-            <td>{{ product.code }}</td>
-            <td>{{ product.name }}</td>
-            <td>{{ product.category }}</td>
-            <td>{{ product.quantity }}</td>
-        </tr>
-    </ng-template>
-</p-table>
-
- -->
 
 <!-- <br><br><br><br><br><br> -->
 
@@ -269,7 +60,7 @@
           <th>Attended</th>
           <!-- <th>Notes</th> -->
           <th>Status</th>
-          <th>User Email</th>
+          <!-- <th>User Email</th> -->
       </tr>
       <tr>
         <th>
@@ -279,13 +70,7 @@
                 placeholder="Search by title" 
                 ariaLabel="Filter Name" />
         </th>
-        <th>
-          <!-- <p-columnFilter 
-          type="text"
-          field="Date" 
-          placeholder="Search by Date" 
-          ariaLabel="Filter Date" /> -->
-        </th>
+        <th></th>
         <th></th>
 
         <th>
