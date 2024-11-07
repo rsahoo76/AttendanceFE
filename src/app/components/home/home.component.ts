@@ -452,7 +452,7 @@ export class HomeComponent {
   StartStr: any[] = [];
   EndStr: any[] = [];
   MatchedDates: any [] = [];
-  allDayDates: { [key: string]: boolean } = {};
+  allDayDates: { [key: string]: boolean } = {}; 
 
 
   @ViewChild('calendar') calendarComponent!: FullCalendarComponent;
