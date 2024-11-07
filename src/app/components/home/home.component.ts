@@ -452,8 +452,8 @@ export class HomeComponent {
   StartStr: any[] = [];
   EndStr: any[] = [];
   MatchedDates: any [] = [];
-  allDayDates: { [key: string]: boolean } = {}; 
-
+  allDayDates: { [key: string]: boolean } = {};
+  sidebarOpen: boolean = false;
 
   @ViewChild('calendar') calendarComponent!: FullCalendarComponent;
   events: any;
@@ -493,19 +493,26 @@ export class HomeComponent {
         console.error('There was an error!', error);
       }
     });
-
-
     this.fetchAttendanceData();
 
   }
 
-  logout() {
-    this.router.navigate(['/login']);
-    console.log("Logged Out Successfully!!");
-    alert('Logged Out Successfully!!');
-  }
+  // logout() {
+  //   this.router.navigate(['/login']);
+  //   console.log("Logged Out Successfully!!");
+  //   alert('Logged Out Successfully!!');
+  // }
 
-  public sidebarOpen: boolean = false;
+  logout() {
+    const confirmLogout = confirm('Are you sure you want to logout?');
+    if (confirmLogout) {
+        this.router.navigate(['/login']);
+        console.log("Logged Out Successfully!!");
+        alert('Logged Out Successfully!!');
+    } else {
+        console.log("Logout cancelled");
+    }
+}
 
   public toggleSidebar() {
     if ($('.sidebar').css('left') == "-200px") {
@@ -989,8 +996,6 @@ eventData() {
           daysOfWeek: ['1'],
           startTime: '11:00:00',
           endTime: '12:00:00',
-          // backgroundColor: this.getEventColor(data[2].slot3, '11:00:00', '12:00:00'),
-          // borderColor: this.getEventColor(data[2].slot3, '11:00:00', '12:00:00')
         }
         events.push(eventSlot3);
 
@@ -999,8 +1004,6 @@ eventData() {
           daysOfWeek: ['1'],
           startTime: '12:00:00',
           endTime: '13:00:00',
-          // backgroundColor: this.getEventColor(data[2].slot4, '12:00:00', '13:00:00'),
-          // borderColor: this.getEventColor(data[2].slot4, '12:00:00', '13:00:00')
         }
         events.push(eventSlot4);
 
@@ -1018,8 +1021,6 @@ eventData() {
           daysOfWeek: ['1'],
           startTime: '14:00:00',
           endTime: '15:00:00',
-          // backgroundColor: this.getEventColor(data[2].slot6, '14:00:00', '15:00:00'),
-          // borderColor: this.getEventColor(data[2].slot6, '14:00:00', '15:00:00')
         }
         events.push(eventSlot6);
 
@@ -1028,9 +1029,6 @@ eventData() {
           daysOfWeek: ['1'],
           startTime: '15:00:00',
           endTime: '16:00:00',
-          // backgroundColor: this.getEventColor(data[2].slot7, '15:00:00', '16:00:00'),
-          // borderColor: this.getEventColor(data[2].slot7, '15:00:00', '16:00:00')
-          //color: this.updateEventStatus(title, start, end: string, status); Based on this function I want to change the colour of each event 
         }
         events.push(eventSlot7);
 
@@ -1039,8 +1037,6 @@ eventData() {
           daysOfWeek: ['1'],
           startTime: '16:00:00',
           endTime: '17:00:00',
-          // backgroundColor: this.getEventColor(data[2].slot8, '16:00:00', '17:00:00'),
-          // borderColor: this.getEventColor(data[2].slot8, '16:00:00', '17:00:00')
         }
         events.push(eventSlot8);
 
@@ -1050,8 +1046,6 @@ eventData() {
           daysOfWeek: ['2'],
           startTime: '09:00:00',
           endTime: '10:00:00',
-          // backgroundColor: this.getEventColor(data[3].slot1, '09:00:00', '10:00:00'),
-          // borderColor: this.getEventColor(data[3].slot1, '09:00:00', '10:00:00')
         };
         events.push(eventTueSlot1);
 
@@ -1060,8 +1054,7 @@ eventData() {
           daysOfWeek: ['2'],
           startTime: '10:00:00',
           endTime: '11:00:00',
-          // backgroundColor: this.getEventColor(data[3].slot2, '10:00:00', '11:00:00'),
-          // borderColor: this.getEventColor(data[3].slot2, '10:00:00', '11:00:00')
+
         };
         events.push(eventTueSlot2);
 
@@ -1070,8 +1063,7 @@ eventData() {
           daysOfWeek: ['2'],
           startTime: '11:00:00',
           endTime: '12:00:00',
-          // backgroundColor: this.getEventColor(data[3].slot3, '11:00:00', '12:00:00'),
-          // borderColor: this.getEventColor(data[3].slot3, '11:00:00', '12:00:00')
+
         };
         events.push(eventTueSlot3);
 
@@ -1080,8 +1072,7 @@ eventData() {
           daysOfWeek: ['2'],
           startTime: '12:00:00',
           endTime: '13:00:00',
-          // backgroundColor: this.getEventColor(data[3].slot4, '12:00:00', '13:00:00'),
-          // borderColor: this.getEventColor(data[3].slot4, '12:00:00', '13:00:00')
+  
         };
         events.push(eventTueSlot4);
 
@@ -1099,8 +1090,7 @@ eventData() {
           daysOfWeek: ['2'],
           startTime: '14:00:00',
           endTime: '15:00:00',
-          // backgroundColor: this.getEventColor(data[3].slot6, '14:00:00', '15:00:00'),
-          // borderColor: this.getEventColor(data[3].slot6, '14:00:00', '15:00:00')
+
         };
         events.push(eventTueSlot6);
 
@@ -1109,8 +1099,7 @@ eventData() {
           daysOfWeek: ['2'],
           startTime: '15:00:00',
           endTime: '16:00:00',
-          // backgroundColor: this.getEventColor(data[3].slot7, '15:00:00', '16:00:00'),
-          // borderColor: this.getEventColor(data[3].slot7, '15:00:00', '16:00:00')
+
         };
         events.push(eventTueSlot7);
 
@@ -1119,8 +1108,7 @@ eventData() {
           daysOfWeek: ['2'],
           startTime: '16:00:00',
           endTime: '17:00:00',
-          // backgroundColor: this.getEventColor(data[3].slot8, '16:00:00', '17:00:00'),
-          // borderColor: this.getEventColor(data[3].slot8, '16:00:00', '17:00:00')
+
         };
         events.push(eventTueSlot8);
 
@@ -1130,8 +1118,7 @@ eventData() {
           daysOfWeek: ['3'],
           startTime: '09:00:00',
           endTime: '10:00:00',
-          // backgroundColor: this.getEventColor(data[4].slot1, '09:00:00', '10:00:00'),
-          // borderColor: this.getEventColor(data[4].slot1, '09:00:00', '10:00:00')
+
         };
         events.push(eventWedSlot1);
 
@@ -1140,8 +1127,7 @@ eventData() {
           daysOfWeek: ['3'],
           startTime: '10:00:00',
           endTime: '11:00:00',
-          // backgroundColor: this.getEventColor(data[4].slot2, '10:00:00', '11:00:00'),
-          // borderColor: this.getEventColor(data[4].slot2, '10:00:00', '11:00:00')
+        
         };
         events.push(eventWdeSlot2);
 
@@ -1150,8 +1136,7 @@ eventData() {
           daysOfWeek: ['3'],
           startTime: '11:00:00',
           endTime: '12:00:00',
-          // backgroundColor: this.getEventColor(data[4].slot3, '11:00:00', '12:00:00'),
-          // borderColor: this.getEventColor(data[4].slot3, '11:00:00', '12:00:00')
+     
         };
         events.push(eventWedSlot3);
 
@@ -1160,8 +1145,7 @@ eventData() {
           daysOfWeek: ['3'],
           startTime: '12:00:00',
           endTime: '13:00:00',
-          // backgroundColor: this.getEventColor(data[4].slot4, '12:00:00', '13:00:00'),
-          // borderColor: this.getEventColor(data[4].slot4, '12:00:00', '13:00:00')
+         
         };
         events.push(eventWedSlot4);
 
@@ -1179,8 +1163,7 @@ eventData() {
           daysOfWeek: ['3'],
           startTime: '14:00:00',
           endTime: '15:00:00',
-          // backgroundColor: this.getEventColor(data[4].slot6, '14:00:00', '15:00:00'),
-          // borderColor: this.getEventColor(data[4].slot6, '14:00:00', '15:00:00')
+          
         };
         events.push(eventWedSlot6);
 
@@ -1189,8 +1172,7 @@ eventData() {
           daysOfWeek: ['3'],
           startTime: '15:00:00',
           endTime: '16:00:00',
-          // backgroundColor: this.getEventColor(data[4].slot7, '15:00:00', '16:00:00'),
-          // borderColor: this.getEventColor(data[4].slot7, '15:00:00', '16:00:00')
+        
         };
         events.push(eventWedSlot7);
 
@@ -1199,8 +1181,7 @@ eventData() {
           daysOfWeek: ['3'],
           startTime: '16:00:00',
           endTime: '17:00:00',
-          // backgroundColor: this.getEventColor(data[4].slot8, '16:00:00', '17:00:00'),
-          // borderColor: this.getEventColor(data[4].slot8, '16:00:00', '17:00:00')
+        
         };
         events.push(eventWedSlot8);
 
@@ -1210,10 +1191,7 @@ eventData() {
           daysOfWeek: ['4'],
           startTime: '09:00:00',
           endTime: '10:00:00',
-          // backgroundColor: this.getEventColor(data[5].slot1, '09:00:00', '10:00:00'),
-          // borderColor: this.getEventColor(data[5].slot1, '09:00:00', '10:00:00')
-          // color: 'green',
-          // textColor: 'black'
+         
         };
         events.push(eventThuSlot1);
 
@@ -1222,8 +1200,7 @@ eventData() {
           daysOfWeek: ['4'],
           startTime: '10:00:00',
           endTime: '11:00:00',
-          // backgroundColor: this.getEventColor(data[5].slot2, '10:00:00', '11:00:00'),
-          // borderColor: this.getEventColor(data[5].slot2, '10:00:00', '11:00:00')
+         
         };
         events.push(eventThuSlot2);
 
@@ -1232,8 +1209,7 @@ eventData() {
           daysOfWeek: ['4'],
           startTime: '11:00:00',
           endTime: '12:00:00',
-          // backgroundColor: this.getEventColor(data[5].slot3, '11:00:00', '12:00:00'),
-          // borderColor: this.getEventColor(data[5].slot3, '11:00:00', '12:00:00')
+        
         };
         events.push(eventThuSlot3);
 
@@ -1242,8 +1218,7 @@ eventData() {
           daysOfWeek: ['4'],
           startTime: '12:00:00',
           endTime: '13:00:00',
-          // backgroundColor: this.getEventColor(data[5].slot4, '12:00:00', '13:00:00'),
-          // borderColor: this.getEventColor(data[5].slot4, '12:00:00', '13:00:00')
+         
         };
         events.push(eventThuSlot4);
 
@@ -1261,8 +1236,7 @@ eventData() {
           daysOfWeek: ['4'],
           startTime: '14:00:00',
           endTime: '15:00:00',
-          // backgroundColor: this.getEventColor(data[5].slot6, '14:00:00', '15:00:00'),
-          // borderColor: this.getEventColor(data[5].slot6, '14:00:00', '15:00:00')
+          
         };
         events.push(eventThuSlot6);
 
@@ -1271,8 +1245,7 @@ eventData() {
           daysOfWeek: ['4'],
           startTime: '15:00:00',
           endTime: '16:00:00',
-          // backgroundColor: this.getEventColor(data[5].slot7, '15:00:00', '16:00:00'),
-          // borderColor: this.getEventColor(data[5].slot7, '15:00:00', '16:00:00')
+          
         };
         events.push(eventThuSlot7);
 
@@ -1281,8 +1254,7 @@ eventData() {
           daysOfWeek: ['4'],
           startTime: '16:00:00',
           endTime: '17:00:00',
-          // backgroundColor: this.getEventColor(data[5].slot8, '16:00:00', '17:00:00'),
-          // borderColor: this.getEventColor(data[5].slot8, '16:00:00', '17:00:00')
+       
         };
         events.push(eventThuSlot8);
 
@@ -1293,8 +1265,7 @@ eventData() {
           daysOfWeek: ['5'],
           startTime: '09:00:00',
           endTime: '10:00:00',
-          // backgroundColor: this.getEventColor(data[6].slot1, '09:00:00', '10:00:00'),
-          // borderColor: this.getEventColor(data[6].slot1, '09:00:00', '10:00:00')
+       
         };
         events.push(eventFriSlot1);
 
@@ -1303,8 +1274,7 @@ eventData() {
           daysOfWeek: ['5'],
           startTime: '10:00:00',
           endTime: '11:00:00',
-          // backgroundColor: this.getEventColor(data[6].slot2, '10:00:00', '11:00:00'),
-          // borderColor: this.getEventColor(data[6].slot2, '10:00:00', '11:00:00')
+        
         };
         events.push(eventFriSlot2);
 
@@ -1313,8 +1283,7 @@ eventData() {
           daysOfWeek: ['5'],
           startTime: '11:00:00',
           endTime: '12:00:00',
-          // backgroundColor: this.getEventColor(data[6].slot3, '11:00:00', '12:00:00'),
-          // borderColor: this.getEventColor(data[6].slot3, '11:00:00', '12:00:00'),
+          
           cssClass: ''
         };
         events.push(eventFriSlot3);
@@ -1324,8 +1293,7 @@ eventData() {
           daysOfWeek: ['5'],
           startTime: '12:00:00',
           endTime: '13:00:00',
-          // backgroundColor: this.getEventColor(data[6].slot4, '12:00:00', '13:00:00'),
-          // borderColor: this.getEventColor(data[6].slot4, '12:00:00', '13:00:00')
+         
         };
         events.push(eventFriSlot4);
 
@@ -1343,8 +1311,7 @@ eventData() {
           daysOfWeek: ['5'],
           startTime: '14:00:00',
           endTime: '15:00:00',
-          // backgroundColor: this.getEventColor(data[6].slot6, '14:00:00', '15:00:00'),
-          // borderColor: this.getEventColor(data[6].slot6, '14:00:00', '15:00:00')
+          
         };
         events.push(eventFriSlot6);
 
@@ -1353,8 +1320,7 @@ eventData() {
           daysOfWeek: ['5'],
           startTime: '15:00:00',
           endTime: '16:00:00',
-          // backgroundColor: this.getEventColor(data[6].slot7, '15:00:00', '16:00:00'),
-          // borderColor: this.getEventColor(data[6].slot7, '15:00:00', '16:00:00')
+        
         };
         events.push(eventFriSlot7);
 
@@ -1363,10 +1329,7 @@ eventData() {
           daysOfWeek: ['5'],
           startTime: '16:00:00',
           endTime: '17:00:00',
-          // backgroundColor: this.getEventColor(data[6].slot8 , '16:00:00', '17:00:00'),
-          // borderColor: this.getEventColor(data[6].slot8, '16:00:00', '17:00:00')
-          // color: this.Eventcolor()
-          // color: this.updateEventStatus();
+          
         };
 
         events.push(eventFriSlot8);
@@ -1377,7 +1340,7 @@ eventData() {
       
     })
 
-      eventColor: '#378006'
+    // eventColor: '#378006'
     // let events ;
     // let element! : any;
     // this.authservice.getCalendar().subscribe({
