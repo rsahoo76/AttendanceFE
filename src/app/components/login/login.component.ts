@@ -10,11 +10,14 @@ import { LoginResponse } from '../../login-response/login-response';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
+[x: string]: any;
   
   showPasswordRequirements: boolean = false;
   loginForm: FormGroup = new FormGroup({});
   errorMessage: string = '';
   message!: string;
+  showErrorMessage: boolean = false;
+
 
   constructor(private formbuilder: FormBuilder,
               private router: Router,
@@ -49,6 +52,7 @@ export class LoginComponent {
     this.showPasswordRequirements = !this.password.valid  // true;
   }
 
+
 onSubmit() {
   if(this.loginForm.valid){
   const { email, password} = this.loginForm.value;
@@ -82,5 +86,17 @@ onSubmit() {
  }
 
 }
+
+validateFormData() {
+  if (!this.loginForm.get('email')?.value || !this.loginForm.get('password')?.value) {
+    // this.showErrorMessage = true;  
+    alert(' Please fill email and password.')
+  } else {
+    this.showErrorMessage = false;
+    console.log('Login successful');
+  }
 }
+
+}
+
 

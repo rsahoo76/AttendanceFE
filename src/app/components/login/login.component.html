@@ -26,34 +26,28 @@
 
                             <br>
                             <div class="form-group">
-                                <!-- <input type="password" class="form-control" formControlName="password" placeholder="Password"  [ngClass]="{'is-invalid' : password.invalid && password.touched}" (focus)="onPasswordFocus()" (blur)="onPasswordBlur()"/>
-
-                            <div *ngIf="showPasswordRequirements" class="alert alert-info" >
-                                Password must contain at least one uppercase letter, one lowercase letter, one number, and be at least 8 characters long.
-                            </div> -->
-
 
                                 <input type="password" class="form-control" formControlName="password"
                                     placeholder="Password" (input)="onPasswordInput()" (blur)="onPasswordBlur()" />
 
                                 <small *ngIf="password.invalid && (password.dirty || password.touched)"
                                     class="text-danger">
-                                    <div *ngIf="password.errors?.['required']">Password is required.</div>
-                                    <div *ngIf="password.errors?.['minlength']">Password must be at least 8 characters
-                                        long.
-                                    </div>
-                                    <div *ngIf="!password.errors?.['pattern']">Password must contain at least one
-                                        uppercase
-                                        letter, one lowercase letter, and one number.</div>
+                                    <div *ngIf="password && password.errors?.['required']">Password is required.</div>
+                                    <div *ngIf="password.errors?.['minlength']">Password must be at least 8 characters long.</div>
+                                    <div *ngIf="password.errors?.['pattern']">Password must contain at least one
+                                        uppercase letter, one lowercase letter, and one number.</div>
                                 </small>
                             </div>
 
                             <br>
+                             <!-- <div *ngIf="showErrorMessage" class="error-message" style="color: red; margin-top: 10px;">
+                                Please fill in both email and password.
+                              </div> -->
+                            <br>
                             <button type="submit" class="btn btn-outline-primary" 
-                                style="margin-left:200px">
+                                style="margin-left:200px" (click)="validateFormData()">
                                 Login
                             </button>
-
 
                             <!-- <button type="submit" class="btn btn-outline-primary"  style="margin-left:240px" > Login  </button> -->
 

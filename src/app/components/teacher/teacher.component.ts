@@ -2,8 +2,7 @@ import { Component, EventEmitter, Output } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import { HttpErrorResponse } from '@angular/common/http';
 import { Attendance } from '../../attendance';
-import { HomeComponent } from '../home/home.component';
-
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-teacher',
@@ -19,7 +18,7 @@ userId!: number;
 searchValue: string | undefined;
 
 constructor(private authservice: AuthService,
-){}
+            private router: Router){}
 
 
 @Output() statusChange = new EventEmitter<any>();
@@ -54,17 +53,15 @@ ngOnInit(): void {
       console.error('There was an error!', error);
     }
   });
-  
+
 }
 
 setNewUserName(event: Event): void {
   console.log('setNewUserName', (event.target as HTMLTextAreaElement).value);
 }
 
-
 approveEvent(event: any) {
   this.statusChange.emit({ event: event, status: 'Approved' });
-  
 }
 
 rejectEvent(event: any) {
@@ -72,5 +69,4 @@ rejectEvent(event: any) {
 }
 
 }
-
 
