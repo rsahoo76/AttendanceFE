@@ -42,6 +42,7 @@ export class HomeComponent {
   MatchedDates: any [] = [];
   allDayDates: { [key: string]: boolean } = {};
   sidebarOpen: boolean = false;
+  UserData:  any;
 
   @ViewChild('calendar') calendarComponent!: FullCalendarComponent;
   events: any;
@@ -65,6 +66,7 @@ export class HomeComponent {
     this.authservice.getLoggedUser().subscribe(
       (data: any) => {
         this.user = data,
+        this.SetUserData(this.user),
           (err: any) => console.error(err)
       },
       (error: any) => {
@@ -85,6 +87,10 @@ export class HomeComponent {
 
   }
 
+  SetUserData(user1: any){
+    this.UserData = user1;
+  }
+
   logout() {
     const confirmLogout = confirm('Are you sure you want to logout?');
     if (confirmLogout) {
@@ -94,6 +100,18 @@ export class HomeComponent {
     } else {
         console.log("Logout cancelled");
     }
+}
+
+hasRole(){
+
+      let role = null;
+      if (this.UserData) {
+        role = this.UserData.roles.name;
+        if(role == 'teacher' || role == 'admin'){
+          return true;
+        }
+  }
+  return false;
 }
 
   public toggleSidebar() {
@@ -123,7 +141,7 @@ export class HomeComponent {
     slotMinTime: '09:00:00',
     slotMaxTime: '18:00:00',
     defaultAllDay: false,
-    eventDidMount: (arg) => this.onEventMounted(arg),
+    eventDidMount: (arg: any) => this.onEventMounted(arg),
     // hiddenDays: [1],
     headerToolbar: {
       left: 'prev,next today',

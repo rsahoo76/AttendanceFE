@@ -6,7 +6,7 @@
     <div class="topbar__nav-item topbar__nav-item--selected" >
       <!-- <a class="topbar__nav-handle" style="color: white; margin-left: 50%;" href="/home">Home</a> -->
       <a mat-button class="topbar__nav-handle" style="color: white; margin-left: 50%;" href="/home" target="_blank">Home</a>
-      <a mat-button class="topbar__nav-handle" style="color: white; margin-left: 30%;" href="/teacher" target="_blank">Teacher</a>
+      <a mat-button class="topbar__nav-handle" style="color: white; margin-left: 30%;" href="/teacher" *ngIf="hasRole()" target="_blank">Teacher</a>
 
     </div>
 
@@ -41,9 +41,9 @@
 <!-- Sidebar -->
 
 <div class="sidebar" id="left-sidebar" [class.sidebar-collapsed]="!sidebarOpen" [class.sidebar-expanded]="sidebarOpen">
-	<div class="sidebarlinks" style="margin-top: -15px;">
+	<div class="sidebarlinks" style="margin-top: -2px;">
     <div style="padding-top: 0%">
-			<div style="margin-left: 10px; margin-right: 50px; padding: 3%; border-bottom: 1px solid #c5c5c5">
+			<div style="margin-left: 10px; margin-right: 50px; padding: 0%; border-bottom: 1px solid #c5c5c5">
 				<label style="padding-left: 5px">MENU</label>
 				<!-- <span class="glyphicon glyphicon-menu-hamburger" (click)="toggleSidebar()"
 					style="float: right; margin-right: -4px; cursor: pointer; font-size: 20px"></span> -->
@@ -82,7 +82,7 @@
 
 		</div>
   </div>
-  <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>
+  <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>
   <p style="text-align:center;">{{ user.firstname }} {{ user.lastname }}</p>
   <h2></h2><br>
 
@@ -115,7 +115,7 @@ defaultView="dayGridMonth">
 
 <hr>
 
-<footer style="padding-left: 10px;">
+<footer style="padding-left: 20px;">
   <ul>
     <li><a href="#">About Us</a></li>
     <li><a href="#">Contact Us</a></li>

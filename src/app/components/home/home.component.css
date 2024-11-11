@@ -219,6 +219,7 @@ body {
   width: 250px;
   transition: all 0.3s ease;
   align-items: top;
+  margin-top: -6%;
 }
 
 .margin-left {
