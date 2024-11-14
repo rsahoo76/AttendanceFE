@@ -8,6 +8,7 @@ import { StudentComponent } from './components/student/student.component';
 import { HeaderComponent } from './components/header/header.component';
 import { TeacherComponent } from './components/teacher/teacher.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [
   {
@@ -31,7 +32,7 @@ const routes: Routes = [
     path : 'student', component : StudentComponent
   },
   {
-    path : 'header', component : HeaderComponent
+    path : 'header', component : HeaderComponent, canActivate: [AuthGuard]
   },
   {
     path : 'teacher', component : TeacherComponent

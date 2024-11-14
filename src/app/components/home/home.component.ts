@@ -94,6 +94,9 @@ export class HomeComponent {
   logout() {
     const confirmLogout = confirm('Are you sure you want to logout?');
     if (confirmLogout) {
+
+      sessionStorage.clear();
+      
         this.router.navigate(['/login']);
         console.log("Logged Out Successfully!!");
         alert('Logged Out Successfully!!');

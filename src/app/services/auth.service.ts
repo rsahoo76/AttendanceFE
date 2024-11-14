@@ -73,6 +73,11 @@ export class AuthService {
   }
 
 
+  isLoggedIn(): boolean {
+    const userDetails = sessionStorage.getItem('userdetails');
+    return !!userDetails; // this will returns true if user details exist
+  }
+
 }
 
 
