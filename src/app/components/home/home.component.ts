@@ -30,7 +30,7 @@ export class HomeComponent {
   users: User[] = [];
   calendar: Calendar[] = [];
   approved: boolean = false;
-  user: any;
+  user!: any;
   title!: string;
   start!: string;
   end!: string;

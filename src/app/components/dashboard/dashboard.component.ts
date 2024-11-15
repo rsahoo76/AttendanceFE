@@ -13,7 +13,7 @@ import { User } from '../../user';
 export class DashboardComponent {
 
   approved : boolean = false;
-  user: any;
+  user!: any;
 
   constructor( private authservice: AuthService) { }
 

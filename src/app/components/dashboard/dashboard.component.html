@@ -1,33 +1,33 @@
 <!-- <p>dashboard works!</p> -->
 <app-header></app-header>
-<h2>Welcome, {{ user.firstname }} {{ user.lastname }}</h2><br>
+<h2>Welcome, {{ user?.firstname }} {{ user?.lastname }}</h2><br>
 <table>
   <tr>
     <td>First Name</td>
-    <td>{{ user.firstname }}</td>
+    <td>{{ user?.firstname }}</td>
   </tr>
   <tr>
     <td>Last Name</td>
-    <td>{{ user.lastname }}</td>
+    <td>{{ user?.lastname }}</td>
   </tr>
   <tr>
     <td>Email</td>
-    <td>{{ user.email }}</td>
+    <td>{{ user?.email }}</td>
   </tr>
   <tr>
     <td>Phone Number</td>
-    <td>{{ user.phoneNumber }}</td>
+    <td>{{ user?.phoneNumber }}</td>
   </tr>
   <tr>
     <td>Location</td>
-    <td>{{ user.location }}</td>
+    <td>{{ user?.location }}</td>
   </tr>
   <tr>
     <td>Department</td>
-    <td>{{ user.department?.name }}</td>
+    <td>{{ user?.department?.name }}</td>
   </tr>
   <tr>
     <td>Role</td>
-    <td>{{ user.roles?.name }}</td>
+    <td>{{ user?.roles?.name }}</td>
   </tr>
 </table>

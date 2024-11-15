@@ -5,8 +5,9 @@
     <h1 class="branding-text" style="color: white;">Mumbai University</h1>
     <div class="topbar__nav-item topbar__nav-item--selected" >
       <!-- <a class="topbar__nav-handle" style="color: white; margin-left: 50%;" href="/home">Home</a> -->
-      <a mat-button class="topbar__nav-handle" style="color: white; margin-left: 50%;" href="/home" target="_blank">Home</a>
-      <a mat-button class="topbar__nav-handle" style="color: white; margin-left: 30%;" href="/teacher" *ngIf="hasRole()" target="_blank">Teacher</a>
+      <!-- <a mat-button class="topbar__nav-handle" style="color: white; margin-left: 50%;" href="/home" target="_blank">Home</a> -->
+      <a mat-button class="topbar__nav-handle" style="color: white; margin-left: 50%;" href="/home" >Home</a>
+      <a mat-button class="topbar__nav-handle" style="color: white; margin-left: 30%;" routerLink="/teacher" *ngIf="hasRole()" >Teacher</a>
 
     </div>
 
@@ -83,7 +84,7 @@
 		</div>
   </div>
   <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>
-  <p style="text-align:center;">{{ user.firstname }} {{ user.lastname }}</p>
+  <p style="text-align:center;">{{ user?.firstname }} {{ user?.lastname }}</p>
   <h2></h2><br>
 
 </div>
