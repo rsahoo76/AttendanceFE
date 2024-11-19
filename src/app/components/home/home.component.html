@@ -56,29 +56,29 @@
         <li class="sidebar-link" routerLink="/student" (click)="sidebarOpen ? toggleSidebar() : null" >
 				<a style="text-decoration: none">Student</a>
 				<span id="chevron" style="float: right; margin-top: 5px" *ngIf="sidebarOpen"></span>
-				<span matTooltip="Student" matTooltipPosition="right" 
-					*ngIf="!sidebarOpen" style="float:right; cursor: pointer;font-size: 20px;margin-right: 7px"></span>
+				<span matTooltip="Student" matTooltipPosition="right" class="fa fa-user" id="icon"
+					*ngIf="!sidebarOpen" style="float:right; cursor: pointer;font-size: 20px; margin-right: 1px"></span>
 			</li>
 
       <li class="sidebar-link" routerLink="" (click)="sidebarOpen ? toggleSidebar() : null" >
 				<a style="text-decoration: none">Courses</a>
 				<span id="chevron" style="float: right; margin-top: 5px" *ngIf="sidebarOpen"></span>
-				<span matTooltip="Courses" matTooltipPosition="right" 
-					*ngIf="!sidebarOpen" style="float:right; cursor: pointer;font-size: 20px;margin-right: 7px"></span>
+				<span matTooltip="Courses" matTooltipPosition="right" class="fa fa-book" id="icon"
+					*ngIf="!sidebarOpen" style="float:right; cursor: pointer;font-size: 20px;margin-right: 1px"></span>
 			</li>
 
       <li class="sidebar-link" routerLink="" (click)="sidebarOpen ? toggleSidebar() : null" >
 				<a style="text-decoration: none">Library</a>
 				<span id="chevron" style="float: right; margin-top: 5px" *ngIf="sidebarOpen"></span>
-				<span matTooltip="Library" matTooltipPosition="right" 
-					*ngIf="!sidebarOpen" style="float:right; cursor: pointer;font-size: 20px;margin-right: 7px"></span>
+				<span matTooltip="Library" matTooltipPosition="right" class="fa fa-address-book" id="icon"
+					*ngIf="!sidebarOpen" style="float:right; cursor: pointer;font-size: 20px; margin-right: 1px"></span>
 			</li>
 
       <li class="sidebar-link" routerLink="" (click)="sidebarOpen ? toggleSidebar() : null" >
 				<a style="text-decoration: none">Report</a>
 				<span id="chevron" style="float: right; margin-top: 5px" *ngIf="sidebarOpen"></span>
-				<span matTooltip="Report" matTooltipPosition="right" 
-					*ngIf="!sidebarOpen" style="float:right; cursor: pointer;font-size: 20px;margin-right: 7px"></span>
+				<span matTooltip="Report" matTooltipPosition="right" class="fa fa-file" id="icon"
+					*ngIf="!sidebarOpen" style="float:right; cursor: pointer;font-size: 20px;margin-right: 2px"></span>
 			</li>
 
 		</div>

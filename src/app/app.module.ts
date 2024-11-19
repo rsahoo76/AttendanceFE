@@ -51,7 +51,7 @@ import { SidebarModule } from 'primeng/sidebar';
 import { ButtonModule } from 'primeng/button';
 
 import { Tooltip } from 'primeng/tooltip';
-
+import { MatTooltipModule } from '@angular/material/tooltip'
 
 @NgModule({
   declarations: [
@@ -95,7 +95,8 @@ import { Tooltip } from 'primeng/tooltip';
     TableModule,
     FloatLabelModule,
     SidebarModule,
-    ButtonModule
+    ButtonModule,
+    MatTooltipModule
 
   ],
   providers: [
