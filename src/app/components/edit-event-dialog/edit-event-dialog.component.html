@@ -5,21 +5,24 @@
     </div>
     <br>
 
-      <mat-label style="color: black;">Start : {{start}} </mat-label><br>
+      <mat-label style="color: black;">Start : {{start | date }} </mat-label><br>
    
-      <mat-label style="color: black;">End : {{end}} </mat-label> <br>    
-
-      <h5 style="color: black;">Notes : </h5>
+      <mat-label style="color: black;">End : {{end | date }} </mat-label> <br>    
+    <!-- dates will be saved in this format : 2024-12-04T10:00:00 -->
+      <br>
+      <h6 style="color: black;">Notes : </h6>
 
       <textarea matInput [(ngModel)]="notes" placeholder="Enter some keypoints..."></textarea>
 
-    <h5 style="color: black;">Update Attendance</h5>
+      <br><br>
+    <h6 style="color: black;">Update Attendance</h6>
     <mat-radio-group [(ngModel)]="attended">
         <mat-radio-button value="true" style="font-style: normal;">
-          <h5>Present</h5></mat-radio-button>
-        <mat-radio-button value="false"><h5>Absent</h5></mat-radio-button>
+          <h6>Present</h6></mat-radio-button>
+        <mat-radio-button value="false"><h6>Absent</h6></mat-radio-button>
       </mat-radio-group>
     
+      <br>
   <div mat-dialog-actions class="dialog-actions">
     <button mat-button (click)="onCancel()">Cancel</button>
     <button mat-raised-button class="btn-primary"  color="primary" (click)="onSave()">Save</button>
