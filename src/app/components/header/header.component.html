@@ -1,8 +1,6 @@
-
+<!-- 
 <mat-toolbar style="background-color: black;">
-
     <mat-toolbar-row>
-
       <h1 style="color: white;" >Mumbai University</h1>
       <div class="topbar__nav-item topbar__nav-item--selected" >
       <a mat-button class="topbar__nav-handle" style="color: rgb(251, 250, 246); margin-left: 100%;" routerLink="/home" >Home</a>
@@ -10,4 +8,96 @@
       <span style="flex: 1 1 auto;"></span> 
       <a mat-flat-button (click)="logout()">Logout</a>
     </mat-toolbar-row>
-</mat-toolbar>
+</mat-toolbar> -->
+
+
+<!-- Header -->
+<div class="header" style="padding-left: 50px;">
+  <mat-toolbar style="background-color: black;">
+    <mat-toolbar-row>
+      <h1 class="branding-text" style="color: white;">Mumbai University</h1>
+      <div class="topbar__nav-item topbar__nav-item--selected" >
+        <!-- <a class="topbar__nav-handle" style="color: white; margin-left: 50%;" href="/home">Home</a> -->
+        <!-- <a mat-button class="topbar__nav-handle" style="color: white; margin-left: 50%;" href="/home" target="_blank">Home</a> -->
+        <a mat-button class="topbar__nav-handle" style="color: white; margin-left: 50%;" href="/home" >Home</a>
+        <a mat-button class="topbar__nav-handle" style="color: white; margin-left: 30%;" routerLink="/teacher" *ngIf="hasRole()" >Teacher</a>
+  
+      </div>
+  
+      <span style="flex: 1 1 auto;"></span>
+      <a mat-flat-button (click)="logout()">Logout</a>
+    </mat-toolbar-row>
+  </mat-toolbar>
+  </div>
+  
+  
+  <div class="header_2" style="padding-left: 50px;">
+    <!-- <mat-toolbar > -->
+      <mat-toolbar-row class="heading_2">
+        <!-- <h2 class="branding-text" style="color: black;">First Year</h2> -->
+        <div class="col-md-1">
+          <h4 routerLink="/student" style="font-size: small; cursor: pointer" target="_blank">First Year</h4>
+        </div>
+        <div class="col-md-1">
+          <h4 routerLink="/student" style="font-size: small; cursor: pointer">Second Year</h4>
+        </div>
+        <div class="col-md-1">
+          <h4 routerLink="/student" style="font-size: small; cursor: pointer">Third Year</h4>
+        </div>
+        <div class="col-md-1">
+          <h4 routerLink="/student" style="font-size: small; cursor: pointer">Fourth Year</h4>
+        </div>
+      
+      </mat-toolbar-row>
+    <!-- </mat-toolbar> -->
+    </div>
+  
+  <!-- Sidebar -->
+  
+  <div class="sidebar" id="left-sidebar" [class.sidebar-collapsed]="!sidebarOpen" [class.sidebar-expanded]="sidebarOpen">
+    <div class="sidebarlinks" style="margin-top: -2px;">
+      <div style="padding-top: 0%">
+        <div style="margin-left: 10px; margin-right: 50px; padding: 0%; border-bottom: 1px solid #c5c5c5">
+          <label style="padding-left: 5px">MENU</label>
+          <!-- <span class="glyphicon glyphicon-menu-hamburger" (click)="toggleSidebar()"
+            style="float: right; margin-right: -4px; cursor: pointer; font-size: 20px"></span> -->
+            <span class="fa fa-bars" (click)="toggleSidebar()"
+            style="float: right; margin-right: -45px; cursor: pointer; font-size: 20px"></span>
+  
+          </div>
+  
+          <li class="sidebar-link" routerLink="/student" (click)="sidebarOpen ? toggleSidebar() : null" >
+          <a style="text-decoration: none">Student</a>
+          <span id="chevron" style="float: right; margin-top: 5px" *ngIf="sidebarOpen"></span>
+          <span matTooltip="Student" matTooltipPosition="right" class="fa fa-user" id="icon"
+            *ngIf="!sidebarOpen" style="float:right; cursor: pointer;font-size: 20px; margin-right: 1px"></span>
+        </li>
+  
+        <li class="sidebar-link" routerLink="" (click)="sidebarOpen ? toggleSidebar() : null" >
+          <a style="text-decoration: none">Courses</a>
+          <span id="chevron" style="float: right; margin-top: 5px" *ngIf="sidebarOpen"></span>
+          <span matTooltip="Courses" matTooltipPosition="right" class="fa fa-book" id="icon"
+            *ngIf="!sidebarOpen" style="float:right; cursor: pointer;font-size: 20px;margin-right: 1px"></span>
+        </li>
+  
+        <li class="sidebar-link" routerLink="" (click)="sidebarOpen ? toggleSidebar() : null" >
+          <a style="text-decoration: none">Library</a>
+          <span id="chevron" style="float: right; margin-top: 5px" *ngIf="sidebarOpen"></span>
+          <span matTooltip="Library" matTooltipPosition="right" class="fa fa-address-book" id="icon"
+            *ngIf="!sidebarOpen" style="float:right; cursor: pointer;font-size: 20px; margin-right: 1px"></span>
+        </li>
+  
+        <li class="sidebar-link" routerLink="" (click)="sidebarOpen ? toggleSidebar() : null" >
+          <a style="text-decoration: none">Report</a>
+          <span id="chevron" style="float: right; margin-top: 5px" *ngIf="sidebarOpen"></span>
+          <span matTooltip="Report" matTooltipPosition="right" class="fa fa-file" id="icon"
+            *ngIf="!sidebarOpen" style="float:right; cursor: pointer;font-size: 20px;margin-right: 2px"></span>
+        </li>
+  
+      </div>
+    </div>
+    <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>
+    <p style="text-align:center;">{{ user?.firstname }} {{ user?.lastname }}</p>
+    <h2></h2><br>
+  
+  </div>
